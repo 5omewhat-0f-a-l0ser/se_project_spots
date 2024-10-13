@@ -4,6 +4,9 @@
 
 .card__title {
   color: #212121;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
 }
 
 .card__image {
@@ -29,3 +32,9 @@
   margin: 0;
 }
 
+@media screen and (max-width: 627px) {
+  .card__image{
+    height: 288px;
+    width: 288px;
+  }
+}
