@@ -28,6 +28,10 @@
   background-color: transparent;
 }
 
+.card__like-btn:hover {
+  color: rgba(33, 33, 33, 1)
+}
+
 .card__content {
   display: flex;
   align-items: center;
