@@ -52,4 +52,18 @@
     height: 288px;
     width: 288px;
   }
+
+  .card__title {
+    font-size: 16px;
+  }
+
+  .card__like-btn {
+  width: 20px;
+  height: 18px;
+  gap: 0px;
+  border: 2px 0px 0px 0px;
+  opacity: 0px;
+  }
+
+  .
 }
