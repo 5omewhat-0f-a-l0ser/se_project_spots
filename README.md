@@ -19,4 +19,4 @@ page is deployed to Github Pages
 
 * Deployment Link: https://5omewhat-0f-a-l0ser.github.io/se_project_spots
 
-* Video Link: [To be added soon]
+* Video Link: https://drive.google.com/drive/u/1/my-drive
