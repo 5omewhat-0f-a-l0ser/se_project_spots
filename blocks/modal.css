@@ -38,6 +38,13 @@
     background-image: url(../image/Close\ Icon.svg);
     background-color: transparent;
     border: none;
+    opacity: 0.4;
+}
+
+.modal__close:hover {
+  cursor: pointer;
+  color: rgb(33, 33, 33,);
+  opacity: 1;
 }
 
 .modal__title {
@@ -68,7 +75,11 @@
     padding: 18px 0;
     width: 156px;
     background-color: #212121;
-    color: #FCF5E5;;
+    color: #FCF5E5;
+}
+
+.modal__sumbit:hover {
+    background-color: rgba(33, 33, 33, 0.4);
 }
 
 @media screen and (max-width: 627px) {
