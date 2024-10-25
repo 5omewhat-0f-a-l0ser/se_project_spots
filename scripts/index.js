@@ -6,3 +6,22 @@ const initialCards = [
     {name: "Tunnel with morning light", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg"},
     {name: "Mountain house", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg"},
 ]
+
+const profileEditButton = document.querySelector(".profile__edit-btn");
+
+const editModal = document.querySelector("#edit-profile-modal");
+
+const editModalCloseButton = editModal.querySelector(".modal__close");
+
+
+function openModal() {
+    editModal.classList.add("modal_opened");
+}
+
+function closeModal() {
+    editModal.classList.remove("modal_opened");
+}
+
+profileEditButton.addEventListener("click", openModal);
+
+editModalCloseButton.addEventListener("click", closeModal);
