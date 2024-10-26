@@ -25,3 +25,5 @@ function closeModal() {
 profileEditButton.addEventListener("click", openModal);
 
 editModalCloseButton.addEventListener("click", closeModal);
+
+
