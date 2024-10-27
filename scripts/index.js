@@ -13,8 +13,16 @@ const editModal = document.querySelector("#edit-profile-modal");
 
 const editModalCloseButton = editModal.querySelector(".modal__close");
 
+const profileName = document.querySelector(".profile__name");
+
+const editModalNameInput = editModal.querySelector("#profile-name-input")
+
+const descriptionName = document.querySelector(".profile__description");
+const editModalDescriptionInput = document.querySelector("#profile-description-input");
 
 function openModal() {
+    editModalNameInput.value = profileName.textContent;
+    editModalDescriptionInput.value = descriptionName.textContent;
     editModal.classList.add("modal_opened");
 }
 
