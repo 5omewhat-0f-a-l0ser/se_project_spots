@@ -20,11 +20,16 @@ const editModalDescriptionInput = document.querySelector("#profile-description-i
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
-function getCardElement(data) {
-    const cardElement = cardTemplate.content,querySelector(".card").cloneNode(true);
-    const cardNameEl = cardElement.querySelector(".card__title");
 
-    cardNameEl.textContent data.name;
+
+function getCardElement(data) {
+    const cardElement = cardTemplate.content.querySelector(".card").cloneNode(true);
+    const cardNameEl = cardElement.querySelector(".card__title");
+    const cardImageEl = cardElement.querySelector(".card__image");
+
+    cardNameEl.textContent = data.name;
+    cardImageEl.src = data.link;
+    cardImageEl.alt = data.name;
 
     return cardElement;
 };
