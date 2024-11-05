@@ -71,16 +71,17 @@ editModalCloseButton.addEventListener("click", (evt) => {
 
 });
 
-
 addCardButton.addEventListener("click", () => {
     openModal(addCardModal);
-    });
+});
+
 addCardCloseButton.addEventListener("click", (evt) => {
     closeModal(addCardModal);
-});
+})
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 addCardFormElemet.addEventListener("submit", handleAddCardFormElement);
+
 initialCards.forEach((item, i, arr) => {
     console.log(i);
     console.log(arr);
