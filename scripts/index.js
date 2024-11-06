@@ -42,8 +42,8 @@ function openModal(modal) {
     modal.classList.add("modal_opened");
 }
 
-function closeModal() {
-    modal.classList.remove("modal_opened");
+function closeModal(modal) {
+   modal.classList.remove("modal_opened");
 }
 
 function handleEditFormSubmit(evt) {
