@@ -40,7 +40,7 @@ function getCardElement(data) {
     cardImageEl.alt = data.name;
 
     cardLikeButton.addEventListener("click", () => {
-        
+        cardLikeButton.classList.toggle("card__like-btn_liked");
     });
 
     return cardElement;

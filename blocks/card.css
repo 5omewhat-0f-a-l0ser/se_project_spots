@@ -25,6 +25,23 @@
   object-fit: cover;
 }
 
+.card__delete {
+  background-image: url(../image/trash.svg);
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 12px;
+  height: 15px;
+  position: absolute;
+  top: 10px;
+  left: 371px;
+}
+
+.card__delete:hover {
+  background: rgba(255, 101, 101, 1);
+}
+
 .card__like-btn {
   opacity: 0.4;
   background-image: url(../image/like.svg);
