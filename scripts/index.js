@@ -33,7 +33,7 @@ function getCardElement(data) {
     const cardNameEl = cardElement.querySelector(".card__title");
     const cardImageEl = cardElement.querySelector(".card__image");
     const cardLikeButton = cardElement.querySelector(".card__like-btn");
-
+    const cardDeleteButton = cardElement.querySelector(".card__delete");
 
     cardNameEl.textContent = data.name;
     cardImageEl.src = data.link;
@@ -43,6 +43,9 @@ function getCardElement(data) {
         cardLikeButton.classList.toggle("card__like-btn_liked");
     });
 
+    cardDeleteButton.addEventListener("click", () => {
+        cardDeleteButton.classList.toggle("card__delete");
+    })
     return cardElement;
 };
 
