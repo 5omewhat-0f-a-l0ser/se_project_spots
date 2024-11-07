@@ -38,10 +38,12 @@
   top: 10px;
   left: 371px;
   border: none;
+  
 }
 
 .card__delete:hover {
-  background: rgba(255, 101, 101, 1);
+  background-color: rgba(255, 101, 101, 1);
+  border-radius: 50%;
 }
 
 .card__like-btn {
