@@ -30,7 +30,10 @@
 }
 
 .modal__image {
-    width: 100%
+    width: 100%;
+    object-fit: contain;
+    max-width: 80vw;
+    min-height: 80vh;
 }
 
 .modal_opened {
