@@ -58,9 +58,11 @@ function getCardElement(data) {
         previewModalCaptionEl.textContent = data.name;
         previewModalImageEl.src = data.link;
         previewModalImageEl.alt = data.alt;
-        
     })
 
+    previewModalCloseButton.addEventListener("click", (evt) => {
+        closeModal(previewModal);
+    });
 
     return cardElement;
 };
