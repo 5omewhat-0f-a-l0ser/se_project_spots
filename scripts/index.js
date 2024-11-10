@@ -5,6 +5,7 @@ const initialCards = [
     {name: "A very long bridge, over the forest and through the trees", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg"},
     {name: "Tunnel with morning light", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg"},
     {name: "Mountain house", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg"},
+    {name: "Golden Gate Bridge", link: " https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg"},
 ]
 
 const profileEditButton = document.querySelector(".profile__edit-btn");
@@ -22,6 +23,10 @@ const addCardModal = document.querySelector("#add-card-modal");
 const addCardCloseButton = addCardModal.querySelector(".modal__close");
 const addFormElement = addCardModal.querySelector(".modal__form");
 
+const previewModal = document.querySelector("#preview-modal");
+const previewModalImageEl = previewModal.querySelector(".modal__image");
+const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
+const previewModalCloseButton = previewModal.querySelector(".modal__close");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
@@ -47,6 +52,16 @@ function getCardElement(data) {
         cardDeleteButton.classList.toggle("card__delete");
         cardElement.remove("card");
     })
+
+    cardImageEl.addEventListener("click", () => {
+        openModal(previewModal);
+        previewModalCaptionEl.textContent = data.name;
+        previewModalImageEl.src = data.link;
+        previewModalImageEl.alt = data.alt;
+        
+    })
+
+
     return cardElement;
 };
 

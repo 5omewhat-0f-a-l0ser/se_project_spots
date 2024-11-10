@@ -51,6 +51,22 @@
     border-radius: 8px;
 }
 
+
+
+.modal__caption {
+    width: Hug (135px)px;
+    height: Hug (32px)px;
+    top: 750px;
+    left: 497px;
+    padding: 4px 8px 4px 8px;
+    gap: 0px;
+    border-radius: 8px 0px 0px 0px;
+    opacity: 0px;
+    background: rgba(33, 33, 33, 1);
+    color: rgba(255, 255, 255, 1);
+
+}
+
 .modal__close {
     position: absolute;
     top: 32px;
