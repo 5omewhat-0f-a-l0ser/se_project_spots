@@ -87,7 +87,9 @@ function handleAddFromElement(evt) {
     evt.preventDefault();
     const inputValues = {name: addCardCaption.value, link: addCardLink.value };
     const cardElement = getCardElement(inputValues);
-    cardsList.append(cardElement);
+    cardImageEl.src = inputValues;
+    cardImageEl.alt = inputValues;
+    cardsList.prepend(cardElement);
     closeModal(addCardModal);
 };
 
