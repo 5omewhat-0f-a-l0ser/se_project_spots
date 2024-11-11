@@ -12,7 +12,6 @@ const profileEditButton = document.querySelector(".profile__edit-btn");
 const profileName = document.querySelector(".profile__name");
 const descriptionName = document.querySelector(".profile__description");
 const addCardButton = document.querySelector(".profile__add-btn");
-const 
 
 const editModal = document.querySelector("#edit-profile-modal");
 const editFormElement = editModal.querySelector(".modal__form");
@@ -87,7 +86,6 @@ function handleEditFormSubmit(evt) {
 
 function handleAddFromElement(evt) {
     evt.preventDefault();
-    addCardCaption.textContent = 
     closeModal(addCardModal);
 };
 
