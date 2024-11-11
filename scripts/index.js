@@ -86,10 +86,7 @@ function handleEditFormSubmit(evt) {
 function handleAddFromElement(evt) {
     evt.preventDefault();
     const inputValues = {name: addCardCaption.value, link: addCardLink.value };
-    const addCardImage = cardsList.querySelector(".card__image");
     const cardElement = getCardElement(inputValues);
-    addCardImage.src = inputValues.link;
-    addCardImage.alt = inputValues.name;
     cardsList.prepend(cardElement);
     closeModal(addCardModal);
 };

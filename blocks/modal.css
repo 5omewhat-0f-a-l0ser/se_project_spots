@@ -84,8 +84,8 @@
 
 .modal__close_preview {
     background-image: url(../image/preview_close.svg);
-    top: 0;
-    right: -12.5px;
+    top: -12px;
+    right: -42.5px;
     opacity: 1;
 }
 
