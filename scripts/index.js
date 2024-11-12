@@ -50,8 +50,7 @@ function getCardElement(data) {
     });
 
     cardDeleteButton.addEventListener("click", () => {
-        cardDeleteButton.classList.toggle("card__delete");
-        cardElement.remove("card");
+        cardElement.remove();
     })
 
     cardImageEl.addEventListener("click", () => {
@@ -61,12 +60,12 @@ function getCardElement(data) {
         previewModalImageEl.alt = data.alt;
     })
 
-    previewModalCloseButton.addEventListener("click", (evt) => {
-        closeModal(previewModal);
-    });
-
     return cardElement;
 };
+
+previewModalCloseButton.addEventListener("click", (evt) => {
+    closeModal(previewModal);
+});
 
 function openModal(modal) {
     modal.classList.add("modal_opened");
@@ -88,6 +87,7 @@ function handleAddFromElement(evt) {
     const inputValues = {name: addCardCaption.value, link: addCardLink.value };
     const cardElement = getCardElement(inputValues);
     cardsList.prepend(cardElement);
+    evt.target.reset();
     closeModal(addCardModal);
 };
 
