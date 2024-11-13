@@ -104,4 +104,8 @@
   .card {
     margin-bottom: 20px;
   }
+
+  .card__delete {
+    left: 250px;
+  }
 }
