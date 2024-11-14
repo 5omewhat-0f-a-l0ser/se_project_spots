@@ -37,7 +37,7 @@
   height: 32px;
   position: absolute;
   top: 10px;
-  left: 371px;
+  right: 10px;
   border: none;
   border-radius: 50%;
 }
@@ -105,7 +105,4 @@
     margin-bottom: 20px;
   }
 
-  .card__delete {
-    left: 250px;
-  }
 }
