@@ -25,7 +25,6 @@
     border-radius: 10px;
     position: relative;
     padding: 36px 50px 32px;
-    transform: scale(0.95);
     transition: transform 1s ease;
 }
 
@@ -43,7 +42,7 @@
 
 .modal__image {
     max-width: 80vw;
-    max-height: 80hv;
+    max-height: 80vh;
     object-fit: contain;
 }
 
@@ -68,7 +67,7 @@
     padding: 4px 8px;
     border-radius: 8px;
     opacity: 1;
-    background: rgba(33, 33, 33, 1);
+    background: rgba(33, 33, 33, .7);
     color: rgba(255, 255, 255, 1);
     width: fit-content;
 }
@@ -149,8 +148,8 @@
     }
 
     .modal__close {
-        top: 12px;
-        right: 12px;
+        top: -48px;
+        left: 198px;
     }
 
     .modal__label {
