@@ -119,6 +119,7 @@
     flex-direction: column;
     gap: 8px;
     margin-bottom: 32px;
+    color: rgba(33, 33, 33, .7);
 }
 
 .modal__sumbit {
