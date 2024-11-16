@@ -44,6 +44,7 @@
     max-width: 80vw;
     max-height: 80vh;
     object-fit: contain;
+    border-radius: 8px;
 }
 
 .modal_opened {
@@ -63,13 +64,13 @@
 
 
 .modal__caption {
-    width: 135px;
     padding: 4px 8px;
     border-radius: 8px;
     opacity: 1;
-    background: rgba(33, 33, 33, .7);
+    background:#212121;
     color: rgba(255, 255, 255, 1);
     width: fit-content;
+    margin: 0;
 }
 
 .modal__close {
@@ -148,8 +149,18 @@
     }
 
     .modal__close {
+        top: 12px;
+        right: 12px;
+    }
+
+    .modal__close_preview {
         top: -48px;
-        left: 198px;
+        right: -20px;
+    }
+
+    .modal__image {
+        padding: 0 10px;
+        
     }
 
     .modal__label {
@@ -159,4 +170,5 @@
     .modal__sumbit {
         width: 100%;
     }
+    
 }
