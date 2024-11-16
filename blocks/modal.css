@@ -162,6 +162,7 @@
 
     .modal__image {
         border-radius: 4px;
+        max-width: 100%;
     }
 
     .modal__label {
@@ -171,5 +172,8 @@
     .modal__sumbit {
         width: 100%;
     }
-    
+
+    .modal__content_preview {
+        max-width: fit-content;
+    }
 }
