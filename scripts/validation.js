@@ -1,14 +1,16 @@
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = document.querySelector(`.${inputElement.id}-error`);
+  console.log(errorElement);
   errorElement.textContent = errorMessage;
 };
+
 const hideInputError = (formElement, inputElement) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  const errorElement = document.querySelector(`.${inputElement.id}-error`);
   errorElement.textContent = "";
 };
 
 const checkInputValidity = (formElement, inputElement) => {
-  if (inputElement.validity.valid) {
+  if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
     hideInputError(formElement, inputElement);
