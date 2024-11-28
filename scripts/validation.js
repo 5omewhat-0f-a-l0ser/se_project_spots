@@ -2,15 +2,11 @@ const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   console.log(errorElement);
   inputElement.classList.add("modal__input_type_error");
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add("modal__input-error_active");
-};
+  errorElement.textContent = errorMessage;};
 
 const hideInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-  inputElement.classList.remove("modal__input_type_error");
-  errorElement.classList.add("modal__input-error_active");
-  errorElement.textContent = "";
+  inputElement.classList.remove("modal__input_type_error");  errorElement.textContent = "";
 };
 
 const checkInputValidity = (formElement, inputElement) => {
@@ -21,6 +17,22 @@ const checkInputValidity = (formElement, inputElement) => {
   }
 };
 
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+};
+
+const toggleButtonState = (inputList, buttonElement) => {
+  if (hasInvalidInput(inputList)) {
+    buttonElement.disabled = true;
+    buttonElement.classList.add("modal__submit_disable");
+  } else {
+    buttonElement.disabled = false;
+    buttonElement.classList.remove("modal__submit_disable");
+  }
+};
+
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll(".modal__input"));
   const buttonElement = formElement.querySelector(".modal__submit");
@@ -28,12 +40,12 @@ const setEventListeners = (formElement) => {
   console.log(inputList);
   console.log(buttonElement);
 
-  //toggleButtonState(inputList, buttonElement);
+  toggleButtonState(inputList, buttonElement);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(formElement, inputElement);
-      //toggleButtonState(inputList, buttonElement);
+      toggleButtonState(inputList, buttonElement);
     });
   });
 };
