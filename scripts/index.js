@@ -95,7 +95,7 @@ function handleAddFromElement(evt) {
 
 profileEditButton.addEventListener("click", () => {
     openModal(editModal);
-    resetValidation(editFormElement, [editModalNameInput, editModalDescriptionInput]);
+    resetValidation(editFormElement, [editModalNameInput, editModalDescriptionInput],{});
     editModalNameInput.value = profileName.textContent;
     editModalDescriptionInput.value = descriptionName.textContent;
 });
