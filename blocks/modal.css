@@ -149,7 +149,7 @@
 }
 
 .modal__submit_disabled {
-    color: rgba(33, 33, 33, .5);
+    background-color: rgba(33, 33, 33, .5);
 }
 
 .modal__submit:hover {
