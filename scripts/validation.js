@@ -31,6 +31,12 @@ const toggleButtonState = (inputList, buttonElement) => {
   }
 };
 
+const resetValidation = (formElement, inputList) => {
+  inputList.forEach((inputElement) => {
+    hideInputError(formElement, inputElement)
+  })
+};
+
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll(".modal__input"));
   const buttonElement = formElement.querySelector(".modal__submit");
