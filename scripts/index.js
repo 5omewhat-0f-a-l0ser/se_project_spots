@@ -89,13 +89,13 @@ function handleAddFromElement(evt) {
     const cardElement = getCardElement(inputValues);
     cardsList.prepend(cardElement);
     evt.target.reset();
-    toggleButtonState(addCardSubmit);
+    toggleButtonState(addCardSubmit, config);
     closeModal(addCardModal);
 };
 
 profileEditButton.addEventListener("click", () => {
     openModal(editModal);
-    resetValidation(editModalNameInput, editModalDescriptionInput);
+    resetValidation(editFormElement, [editModalNameInput, editModalDescriptionInput], coig);
     editModalNameInput.value = profileName.textContent;
     editModalDescriptionInput.value = descriptionName.textContent;
 });
