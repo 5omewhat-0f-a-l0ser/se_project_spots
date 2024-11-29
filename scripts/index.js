@@ -119,9 +119,10 @@ initialCards.forEach((item, i, arr) => {
 });
 
 
-function closeModalEsc(e) {
-    if (e.key === "Escape") {
+function closeModalEsc(evt) {
+    if (evt.key === "Escape") {
       const modalOpened = document.querySelector(".modal_opened");
       closeModal(modalOpened);
-    }
-  }
+    }  
+};
+
