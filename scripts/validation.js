@@ -46,6 +46,10 @@ const resetValidation = (formElement, inputList, config) => {
   })
 };
 
+resetValidation(editFormElement, [editModalNameInput, editModalDescriptionInput], {
+  inputErrorClass: "modal__input_type_error",
+});
+
 const setEventListeners = (formElement, config) => {
   const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
   const buttonElement = formElement.querySelector(config.submitButtonSelector);
