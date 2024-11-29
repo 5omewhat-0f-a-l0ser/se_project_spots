@@ -117,12 +117,3 @@ initialCards.forEach((item, i, arr) => {
     const cardElement = getCardElement(item);
     cardsList.append(cardElement);
 });
-
-function keyHandler(evt) {
-    if (evt.key === "Escape") {
-      closeModal(editModal.value, addCardModal.value);
-    }
-}
-  
-editModal.addEventListener("keydown", keyHandler);
-addCardModal.addEventListener("keydown", keyHandler);
