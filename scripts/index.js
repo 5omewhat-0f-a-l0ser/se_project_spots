@@ -117,3 +117,11 @@ initialCards.forEach((item, i, arr) => {
     const cardElement = getCardElement(item);
     cardsList.append(cardElement);
 });
+
+
+function closeModalEsc(e) {
+    if (e.key === "Escape") {
+      const modalOpened = document.querySelector(".modal_opened");
+      closeModal(modalOpened);
+    }
+  }
