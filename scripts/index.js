@@ -70,6 +70,7 @@ previewModalCloseButton.addEventListener("click", (evt) => {
 
 function openModal(modal) {
     modal.classList.add("modal_opened");
+    document.addEventListener("keydown", closeModalEsc);
 }
 
 function closeModal(modal) {
@@ -122,12 +123,18 @@ initialCards.forEach((item, i, arr) => {
 
 function closeModalEsc(evt) {
     if (evt.key === "Escape") {
-      const modalOpened = document.querySelector(".modal_opened");
-      closeModal(modalOpened);
+      const modalOpen = document.querySelector(".modal_opened");
+      closeModal(modalOpen);
     }  
 };
 
 const modals = document.querySelectorAll(".modal");
+
+function closeOverlay(evt) {
+    if (evt.target.classList.contains("modal")) {
+        closeModal(evt.target);
+    }
+};
 
 modals.forEach((modal) => {
     modal.addEventListener("mousedown", closeOverlay);
