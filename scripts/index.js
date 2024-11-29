@@ -74,6 +74,7 @@ function openModal(modal) {
 
 function closeModal(modal) {
    modal.classList.remove("modal_opened");
+   document.removeEventListener("keydown", closeModalEsc);
 }
 
 function handleEditFormSubmit(evt) {
@@ -126,3 +127,8 @@ function closeModalEsc(evt) {
     }  
 };
 
+const modals = document.querySelectorAll(".modal");
+
+modals.forEach((modal) => {
+    modal.addEventListener("mousedown", closeOverlay);
+  });
