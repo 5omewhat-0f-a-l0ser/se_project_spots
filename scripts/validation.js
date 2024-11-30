@@ -26,13 +26,24 @@ const checkInputValidity = (formElement, inputElement, config) => {
   }
 };
 
-
+const cardNameInput = addCardModal.querySelector("#add-card-caption-input");
+const cardLinkInput = addCardModal.querySelector("#add-card-link-input");
 
 const hasInvalidInput = (inputList) => {
   const inputsArray = Array.from(inputList);
   return inputsArray.some((inputElement) => {
     return !inputElement.validity.valid;
   });
+};
+
+function handleAddFromElement(evt) {
+  evt.preventDefault();
+  const inputValues = {name: addCardCaption.value, link: addCardLink.value };
+  const cardElement = getCardElement(inputValues);
+  cardsList.prepend(cardElement);
+  evt.target.reset();
+  toggleButtonState({cardNameInput, cardLinkInput}, addCardSubmit, settings);
+  closeModal(addCardModal);
 };
 
 const toggleButtonState = (inputList, buttonElement, config) => {
@@ -76,4 +87,11 @@ const enableValidation = (config) => {
     setEventListeners(formElement, config);
   });
   };
+
+  // at validation.js
+const disableButton = (buttonElement, config) => {
+  buttonElement.classList.add(config.inactiveButtonClass);
+  buttonElement.disabled = true;
+};
+
   enableValidation(settings);
