@@ -26,19 +26,25 @@ const checkInputValidity = (formElement, inputElement, config) => {
   }
 };
 
+
+
 const hasInvalidInput = (inputList) => {
-  return inputList.some((inputElement) => {
+  const inputsArray = Array.from(inputList);
+  return inputsArray.some((inputElement) => {
     return !inputElement.validity.valid;
   });
 };
 
 const toggleButtonState = (inputList, buttonElement, config) => {
+  if (!buttonElement) return; // Exit if buttonElement is not found
+
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(config.errorClass);
   } else {
     buttonElement.classList.remove(config.errorClass);
   }
 };
+
 
 const resetValidation = (formElement, inputList, config) => {
   inputList.forEach((inputElement) => {
