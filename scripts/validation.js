@@ -89,9 +89,9 @@ const enableValidation = (config) => {
   };
 
   // at validation.js
-const disableButton = (buttonElement, config) => {
-  buttonElement.classList.add(config.inactiveButtonClass);
-  buttonElement.disabled = true;
-};
+  const disableButton = (buttonElement, config) => {
+    buttonElement.classList.add(config.inactiveButtonClass);
+    buttonElement.disabled = true;
+  };
 
   enableValidation(settings);
