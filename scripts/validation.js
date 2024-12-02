@@ -1,11 +1,12 @@
-const settings = {
+const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit",
-  inactiveButtonClass: "modal__button_disabled",
+  inactiveButtonClass: "modal__button_disabled", //I don't think I have this in my file, but x3 10 says to have it
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__submit_disabled"
 }
+
 //Inputs
 const showInputError = (formElement, inputElement, errorMessage, config) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
@@ -36,8 +37,8 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-//reset
-function handleAddFormElement(evt) {
+//Validation of forms
+function handleAddFromElement(evt) {
   evt.preventDefault();
   const inputValues = {name: addCardCaption.value, link: addCardLink.value };
   const cardElement = getCardElement(inputValues);
@@ -47,16 +48,41 @@ function handleAddFormElement(evt) {
   closeModal(addCardModal);
 };
 
-
+//buttons(the bane of ever loving existence)
 const toggleButtonState = (inputList, buttonElement, config) => {
   if (!buttonElement) return; // Exit if buttonElement is not found
 
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add(config.errorClass);
+    disableButton()
   } else {
+    enableButton()
+  }
+
+      console.log(buttonElement); // Check if this logs the correct element
+    buttonElement.classList.add(config.errorClass);
+    
+};
+
+// disable/enable
+const enableButton = (buttonElement, config) => {
     buttonElement.classList.remove(config.errorClass);
+    buttonElement.disabled = false;
+};
+
+
+const disableButton = (buttonElement, config) => {
+  console.log(buttonElement); // To check if the button element is coming through
+  if (buttonElement) {  // This checks if buttonElement is defined
+      buttonElement.classList.add(config.errorClass);
+      buttonElement.disabled = true;
   }
 };
+
+const buttonElements = document.querySelectorAll(".modal__submit");
+buttonElements.forEach((buttonElement) => {
+  disableButton(buttonElement, config);
+});
+
 
 
 const resetValidation = (formElement, inputList, config) => {
@@ -88,17 +114,6 @@ const enableValidation = (config) => {
   formList.forEach((formElement) => {
     setEventListeners(formElement, config);
   });
-  };
+};
 
-  // at validation.js
-  const enableButton = (buttonElement, config) => {
-    buttonElement.classList.remove(config.inactiveButtonClass);
-    buttonElement.disabled = false;
-  };
-
-  const disableButton = (buttonElement, config) => {
-    buttonElement.classList.add(config.inactiveButtonClass);
-    buttonElement.disabled = true;
-  };
-
-  enableValidation(settings);
+enableValidation(config);
