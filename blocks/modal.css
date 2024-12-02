@@ -14,9 +14,15 @@
     font-weight: 500;
     padding: 0 20px;
     opacity: 0;
+<<<<<<< HEAD
     transition:opacity 1s ease, transform 1s ease , visibility 1s;
 }
 /*content*/
+=======
+    transition:opacity 1s ease, transform 1s ease , visibility 1s; 
+}
+
+>>>>>>> f3a1974829df2b639da5a41ab29a89ecab8c2fff
 .modal__content {
     max-width: 730px;
     width: 100%;
@@ -39,7 +45,11 @@
 .modal__content.modal_opened {
     transform: scale(1);
 }
+<<<<<<< HEAD
 /*images*/
+=======
+
+>>>>>>> f3a1974829df2b639da5a41ab29a89ecab8c2fff
 .modal__image {
     max-width: 80vw;
     max-height: 80vh;
@@ -47,12 +57,20 @@
     border-radius: 8px;
     width: 100%;
 }
+<<<<<<< HEAD
 /*open*/
+=======
+
+>>>>>>> f3a1974829df2b639da5a41ab29a89ecab8c2fff
 .modal_opened {
     visibility: visible;
     opacity:1;
 }
+<<<<<<< HEAD
 /*container*/
+=======
+
+>>>>>>> f3a1974829df2b639da5a41ab29a89ecab8c2fff
 .modal__container {
     background: #fff;
     padding: 32px 50px;
@@ -62,7 +80,12 @@
     position: relative;
     border-radius: 8px;
 }
+<<<<<<< HEAD
 /*caption*/
+=======
+
+
+>>>>>>> f3a1974829df2b639da5a41ab29a89ecab8c2fff
 .modal__caption {
     padding: 4px 8px;
     border-radius: 8px;
@@ -72,7 +95,11 @@
     width: fit-content;
     margin: 0;
 }
+<<<<<<< HEAD
 /*closes*/
+=======
+
+>>>>>>> f3a1974829df2b639da5a41ab29a89ecab8c2fff
 .modal__close {
     position: absolute;
     top: 32px;
@@ -98,14 +125,22 @@
   color: rgb(33, 33, 33,);
   opacity: 1;
 }
+<<<<<<< HEAD
 /*titles*/
+=======
+
+>>>>>>> f3a1974829df2b639da5a41ab29a89ecab8c2fff
 .modal__title {
     margin: 0 0 32px;
     color: #212121;
     font-size: 32px;
     line-height: 1;
 }
+<<<<<<< HEAD
 /*inputs*/
+=======
+
+>>>>>>> f3a1974829df2b639da5a41ab29a89ecab8c2fff
 .modal__input {
     border-radius: 8px;
     padding: 16px 12px;
@@ -119,7 +154,19 @@
 .modal__input:hover {
     border: 1px solid rgb(33, 33, 33);
 }
+<<<<<<< HEAD
 /*labels*/
+=======
+
+.modal__error {
+    display: block;
+    color: rgba(255, 0, 0, 0.7);
+    font-size: 16px;
+    line-height: 17.6px;
+    margin-top: 8px;
+}
+
+>>>>>>> f3a1974829df2b639da5a41ab29a89ecab8c2fff
 .modal__label {
     font-size: 16px;
     line-height: 17.6px;
@@ -129,7 +176,11 @@
     margin-bottom: 32px;
     color: rgba(33, 33, 33, .7);
 }
+<<<<<<< HEAD
 /*submits*/
+=======
+
+>>>>>>> f3a1974829df2b639da5a41ab29a89ecab8c2fff
 .modal__submit {
     font-size: 16px;
     line-height: 1;
@@ -148,6 +199,7 @@
     background-color: rgba(33, 33, 33, 0.4);
 }
 
+<<<<<<< HEAD
 /*errors*/
 .modal__error {
     display: block;
@@ -157,6 +209,8 @@
     margin-top: 8px;
 }
 
+=======
+>>>>>>> f3a1974829df2b639da5a41ab29a89ecab8c2fff
 @media screen and (max-width: 627px) {
     .modal {
         padding: 0 10px;

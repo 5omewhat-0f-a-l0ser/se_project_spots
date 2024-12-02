@@ -8,37 +8,34 @@ const initialCards = [
     {name: "Golden Gate Bridge", link: " https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg"},
 ]
 
-//proflie
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const profileName = document.querySelector(".profile__name");
 const descriptionName = document.querySelector(".profile__description");
 const addCardButton = document.querySelector(".profile__add-btn");
-//edit-profile
+
 const editModal = document.querySelector("#edit-profile-modal");
 const editFormElement = editModal.querySelector(".modal__form");
 const editModalCloseButton = editModal.querySelector(".modal__close");
 const editModalSubmit = editModal.querySelector(".modal__submit");
 const editModalNameInput = editModal.querySelector("#profile-name-input")
 const editModalDescriptionInput = document.querySelector("#profile-description-input");
-//add-card
+
 const addCardModal = document.querySelector("#add-card-modal");
 const addCardCloseButton = addCardModal.querySelector(".modal__close");
 const addCardSubmit = addCardModal.querySelector(".modal__submit");
 const addFormElement = addCardModal.querySelector(".modal__form");
 const addCardLink = addCardModal.querySelector("#add-card-link-input");
 const addCardCaption = addCardModal.querySelector("#add-card-caption-input");
-//preview
+
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = previewModal.querySelector(".modal__image");
 const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
 const previewModalCloseButton = previewModal.querySelector(".modal__close");
-//card(s)
+
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 const cardContainer = document.querySelector(".card");
-//modals
-const modals = document.querySelectorAll(".modal");
-//functions
+
 function getCardElement(data) {
     const cardElement = cardTemplate.content.querySelector(".card").cloneNode(true);
     const cardNameEl = cardElement.querySelector(".card__title");
@@ -68,6 +65,10 @@ function getCardElement(data) {
     return cardElement;
 };
 
+previewModalCloseButton.addEventListener("click", (evt) => {
+    closeModal(previewModal);
+});
+
 function openModal(modal) {
     modal.classList.add("modal_opened");
     document.addEventListener("keydown", closeModalEsc);
@@ -96,19 +97,6 @@ function handleAddFormElement(evt) {
     closeModal(addCardModal);
 };
 
-function closeModalEsc(evt) {
-    if (evt.key === "Escape") {
-      const modalOpen = document.querySelector(".modal_opened");
-      closeModal(modalOpen);
-    }
-};
-
-function closeOverlay(evt) {
-    if (evt.target.classList.contains("modal")) {
-        closeModal(evt.target);
-    }
-};
-//eventlisteners
 profileEditButton.addEventListener("click", () => {
     openModal(editModal);
     resetValidation(editFormElement, [editModalNameInput, editModalDescriptionInput],{});
@@ -129,14 +117,26 @@ addCardCloseButton.addEventListener("click", (evt) => {
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 addFormElement.addEventListener("submit", handleAddFormElement);
 
-previewModalCloseButton.addEventListener("click", (evt) => {
-    closeModal(previewModal);
-});
-//forEach
 initialCards.forEach((item, i, arr) => {
     const cardElement = getCardElement(item);
     cardsList.append(cardElement);
 });
+
+
+function closeModalEsc(evt) {
+    if (evt.key === "Escape") {
+      const modalOpen = document.querySelector(".modal_opened");
+      closeModal(modalOpen);
+    }
+};
+
+const modals = document.querySelectorAll(".modal");
+
+function closeOverlay(evt) {
+    if (evt.target.classList.contains("modal")) {
+        closeModal(evt.target);
+    }
+};
 
 modals.forEach((modal) => {
     modal.addEventListener("mousedown", closeOverlay);
