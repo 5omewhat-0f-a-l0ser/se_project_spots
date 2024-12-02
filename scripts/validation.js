@@ -6,7 +6,7 @@ const settings = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__submit_disabled"
 }
-
+//Inputs
 const showInputError = (formElement, inputElement, errorMessage, config) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   console.log(errorElement);
@@ -36,7 +36,8 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-function handleAddFromElement(evt) {
+//reset
+function handleAddFormElement(evt) {
   evt.preventDefault();
   const inputValues = {name: addCardCaption.value, link: addCardLink.value };
   const cardElement = getCardElement(inputValues);
@@ -45,6 +46,7 @@ function handleAddFromElement(evt) {
   toggleButtonState({cardNameInput, cardLinkInput}, addCardSubmit, settings);
   closeModal(addCardModal);
 };
+
 
 const toggleButtonState = (inputList, buttonElement, config) => {
   if (!buttonElement) return; // Exit if buttonElement is not found
@@ -89,6 +91,11 @@ const enableValidation = (config) => {
   };
 
   // at validation.js
+  const enableButton = (buttonElement, config) => {
+    buttonElement.classList.remove(config.inactiveButtonClass);
+    buttonElement.disabled = false;
+  };
+
   const disableButton = (buttonElement, config) => {
     buttonElement.classList.add(config.inactiveButtonClass);
     buttonElement.disabled = true;

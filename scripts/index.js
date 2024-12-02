@@ -16,6 +16,7 @@ const addCardButton = document.querySelector(".profile__add-btn");
 const editModal = document.querySelector("#edit-profile-modal");
 const editFormElement = editModal.querySelector(".modal__form");
 const editModalCloseButton = editModal.querySelector(".modal__close");
+const editModalSubmit = editModal.querySelector(".modal__submit");
 const editModalNameInput = editModal.querySelector("#profile-name-input")
 const editModalDescriptionInput = document.querySelector("#profile-description-input");
 
@@ -82,10 +83,11 @@ function handleEditFormSubmit(evt) {
     evt.preventDefault();
     profileName.textContent = editModalNameInput.value;
     descriptionName.textContent = editModalDescriptionInput.value;
+    disableButton(editModalSubmit, settings);
     closeModal(editModal);
 };
 
-function handleAddFromElement(evt) {
+function handleAddFormElement(evt) {
     evt.preventDefault();
     const inputValues = {name: addCardCaption.value, link: addCardLink.value };
     const cardElement = getCardElement(inputValues);
@@ -113,7 +115,7 @@ addCardCloseButton.addEventListener("click", (evt) => {
 });
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
-addFormElement.addEventListener("submit", handleAddFromElement);
+addFormElement.addEventListener("submit", handleAddFormElement);
 
 initialCards.forEach((item, i, arr) => {
     const cardElement = getCardElement(item);
