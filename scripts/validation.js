@@ -65,8 +65,13 @@ const toggleButtonState = (inputList, buttonElement, config) => {
 
 // disable/enable
 const enableButton = (buttonElement, config) => {
-    buttonElement.classList.remove(config.errorClass);
-    buttonElement.disabled = false;
+    if (buttonElement) {
+      buttonElement.classList.remove(config.errorClass);
+      buttonElement.disabled = false;
+    }
+    else {
+      console.error('Button is undefined');
+    }
 };
 
 
@@ -75,6 +80,8 @@ const disableButton = (buttonElement, config) => {
   if (buttonElement) {  // This checks if buttonElement is defined
       buttonElement.classList.add(config.errorClass);
       buttonElement.disabled = true;
+  } else {
+      console.error('Button element is fucked up');
   }
 };
 
