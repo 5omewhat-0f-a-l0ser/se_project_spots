@@ -5,7 +5,7 @@ const config = {
   inactiveButtonClass: "modal__submit_disabled", //I don't think I have this in my file, but x3 10 says to have it
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error"
-}
+};
 
 //Inputs
 const showInputError = (formElement, inputElement, errorMessage, config) => {
@@ -53,9 +53,9 @@ const toggleButtonState = (inputList, buttonElement, config) => {
 if (!buttonElement) return; // Exit if buttonElement is not found
 
 if (hasInvalidInput(inputList)) {
-  disableButton()
+  disableButton(buttonElement, config);
 } else {
-  enableButton()
+  enableButton(buttonElement, config);
 }
 
     console.log(buttonElement); // Check if this logs the correct element
@@ -87,8 +87,8 @@ disableButton(buttonElement, config);
 
 const resetValidation = (formElement, inputList, config) => {
 inputList.forEach((inputElement) => {
-  hideInputError(formElement, inputElement, config)
-})
+  hideInputError(formElement, inputElement, config);
+});
 };
 
 resetValidation(editFormElement, [editModalNameInput, editModalDescriptionInput], {
