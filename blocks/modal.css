@@ -142,6 +142,7 @@
 
 .modal__submit_disabled {
     background-color: rgba(33, 33, 33, .5);
+    pointer-events: none;
 }
 
 .modal__submit:hover {
