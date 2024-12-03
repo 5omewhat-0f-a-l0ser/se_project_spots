@@ -53,9 +53,9 @@ const toggleButtonState = (inputList, buttonElement, config) => {
 if (!buttonElement) return; // Exit if buttonElement is not found
 
 if (hasInvalidInput(inputList)) {
-  disableButton()
+  disableButton(buttonElement, config);
 } else {
-  enableButton()
+  enableButton(buttonElement, config);
 }
 
     console.log(buttonElement); // Check if this logs the correct element
