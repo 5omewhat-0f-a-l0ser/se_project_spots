@@ -34,10 +34,10 @@ const cardNameInput = addCardModal.querySelector(cardCaptionClass);
 const cardLinkInput = addCardModal.querySelector(cardLinkClass);
 
 const hasInvalidInput = (inputList) => {
-const inputsArray = Array.from(inputList);
-return inputsArray.some((inputElement) => {
-  return !inputElement.validity.valid;
-});
+  const inputsArray = Array.from(inputList);
+  return inputsArray.some((inputElement) => {
+   return !inputElement.validity.valid;
+  });
 };
 
 //Validation of forms
