@@ -35,9 +35,6 @@ const previewModalCloseButton = previewModal.querySelector(".modal__close");
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 const cardContainer = document.querySelector(".card");
-const cardNameInput = addCardModal.querySelector(cardCaptionClass);
-const cardLinkInput = addCardModal.querySelector(cardLinkClass);
-
 function getCardElement(data) {
     const cardElement = cardTemplate.content.querySelector(".card").cloneNode(true);
     const cardNameEl = cardElement.querySelector(".card__title");
@@ -145,6 +142,9 @@ modals.forEach((modal) => {
 });
 
 //Validation of forms
+const cardNameInput = addCardModal.querySelector("#add-card-caption-input");
+const cardLinkInput = addCardModal.querySelector("#add-card-link-input");
+
 function handleAddFromElement(evt) {
     evt.preventDefault();
     const inputValues = {name: addCardCaption.value, link: addCardLink.value };
