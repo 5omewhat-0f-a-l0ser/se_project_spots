@@ -35,6 +35,8 @@ const previewModalCloseButton = previewModal.querySelector(".modal__close");
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 const cardContainer = document.querySelector(".card");
+const cardNameInput = addCardModal.querySelector(cardCaptionClass);
+const cardLinkInput = addCardModal.querySelector(cardLinkClass);
 
 function getCardElement(data) {
     const cardElement = cardTemplate.content.querySelector(".card").cloneNode(true);
@@ -140,4 +142,16 @@ function closeOverlay(evt) {
 
 modals.forEach((modal) => {
     modal.addEventListener("mousedown", closeOverlay);
-  });
+});
+
+//Validation of forms
+function handleAddFromElement(evt) {
+    evt.preventDefault();
+    const inputValues = {name: addCardCaption.value, link: addCardLink.value };
+    const cardElement = getCardElement(inputValues);
+    cardsList.prepend(cardElement);
+    evt.target.reset();
+    toggleButtonState({cardNameInput, cardLinkInput}, addCardSubmit, settings);
+    closeModal(addCardModal);
+  };
+    

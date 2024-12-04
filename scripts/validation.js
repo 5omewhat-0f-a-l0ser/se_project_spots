@@ -30,25 +30,11 @@ if (!inputElement.validity.valid) {
   }
 };
 
-const cardNameInput = addCardModal.querySelector(cardCaptionClass);
-const cardLinkInput = addCardModal.querySelector(cardLinkClass);
-
 const hasInvalidInput = (inputList) => {
   const inputsArray = Array.from(inputList);
   return inputsArray.some((inputElement) => {
    return !inputElement.validity.valid;
   });
-};
-
-//Validation of forms
-function handleAddFromElement(evt) {
-  evt.preventDefault();
-  const inputValues = {name: addCardCaption.value, link: addCardLink.value };
-  const cardElement = getCardElement(inputValues);
-  cardsList.prepend(cardElement);
-  evt.target.reset();
-  toggleButtonState({cardNameInput, cardLinkInput}, addCardSubmit, settings);
-  closeModal(addCardModal);
 };
 
 //buttons(the bane of ever loving existence)
@@ -107,6 +93,7 @@ inputList.forEach((inputElement) => {
     toggleButtonState(inputList, buttonElement, config);
   });
 });
+};
 
 const enableValidation = (config) => {
   const formList = document.querySelectorAll(config.formSelector);
