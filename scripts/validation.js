@@ -46,10 +46,6 @@ const toggleButtonState = (inputList, buttonElement, config) => {
   }  else {
     enableButton(buttonElement, config);
   }
-
-    console.log(buttonElement); // Check if this logs the correct element
-  buttonElement.classList.add(config.inactiveButtonClass);
-
 };
 
 // disable/enable
