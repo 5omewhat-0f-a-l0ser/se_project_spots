@@ -59,7 +59,7 @@ function getCardElement(data) {
         openModal(previewModal);
         previewModalCaptionEl.textContent = data.name;
         previewModalImageEl.src = data.link;
-        previewModalImageEl.alt = data.alt;
+        previewModalImageEl.alt = data.name;
     })
 
     return cardElement;
@@ -142,14 +142,4 @@ modals.forEach((modal) => {
     modal.addEventListener("mousedown", closeOverlay);
 });
 
-//Validation of forms
-function handleAddFromElement(evt) {
-    evt.preventDefault();
-    const inputValues = {name: addCardCaption.value, link: addCardLink.value };
-    const cardElement = getCardElement(inputValues);
-    cardsList.prepend(cardElement);
-    evt.target.reset();
-    toggleButtonState({addCardLink, addCardCaption}, addCardSubmit, settings);
-    closeModal(addCardModal);
-};
     

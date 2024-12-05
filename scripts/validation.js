@@ -5,8 +5,6 @@ const config = {
   inactiveButtonClass: "modal__submit_disabled", //I don't think I have this in my file, but x3 10 says to have it
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error",
-  cardLinkClass: "add-card-link-input",
-  cardCaptionClass: "add-card-caption-input"
 };
 
 //Inputs
@@ -65,9 +63,6 @@ if (buttonElement) {  // This checks if buttonElement is defined
 
 const buttonElements = document.querySelectorAll(".modal__submit");
 
-buttonElements.forEach((buttonElement) => {
-  disableButton(buttonElement, config);
-});
 
 
 
