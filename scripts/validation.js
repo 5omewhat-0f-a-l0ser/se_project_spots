@@ -61,11 +61,6 @@ if (buttonElement) {  // This checks if buttonElement is defined
   }
 };
 
-const buttonElements = document.querySelectorAll(".modal__submit");
-
-
-
-
 const resetValidation = (formElement, inputList, config) => {
   inputList.forEach((inputElement) => {
     hideInputError(formElement, inputElement, config);
