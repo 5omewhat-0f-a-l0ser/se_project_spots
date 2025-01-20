@@ -1,0 +1,19 @@
+{
+  "name": "se_project_spots",
+  "version": "1.0.0",
+  "description": "An image sharing site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/5omewhat-0f-a-l0ser/se_project_spots.git"
+  },
+  "author": "Millie Houston",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/5omewhat-0f-a-l0ser/se_project_spots/issues"
+  },
+  "homepage": "https://github.com/5omewhat-0f-a-l0ser/se_project_spots#readme"
+}

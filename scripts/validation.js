@@ -1,4 +1,4 @@
-const config = {
+export const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit",
@@ -61,7 +61,7 @@ if (buttonElement) {  // This checks if buttonElement is defined
   }
 };
 
-const resetValidation = (formElement, inputList, config) => {
+export const resetValidation = (formElement, inputList, config) => {
   inputList.forEach((inputElement) => {
     hideInputError(formElement, inputElement, config);
   });
@@ -81,7 +81,7 @@ inputList.forEach((inputElement) => {
 });
 };
 
-const enableValidation = (config) => {
+export const enableValidation = (config) => {
   const formList = document.querySelectorAll(config.formSelector);
   formList.forEach((formElement) => {
    setEventListeners(formElement, config);
