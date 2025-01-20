@@ -130,6 +130,8 @@ function closeModalEsc(evt) {
     }
 };
 
+
+
 const modals = document.querySelectorAll(".modal");
 
 function closeOverlay(evt) {
