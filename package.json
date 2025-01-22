@@ -1,7 +1,7 @@
 {
-  "name": "Insert project name",
+  "name": "se_project_spots",
   "version": "0.1.0",
-  "description": "Describe the project",
+  "description": "Spots is an image sharing site that allows users to display the photos they've taken over the course of their adventure. Either in their day to day to life or on a globe trekking adventure to see the world's sights.",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
