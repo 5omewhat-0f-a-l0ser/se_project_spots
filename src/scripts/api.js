@@ -8,7 +8,7 @@ class Api {
     getInitialCards() {
         return fetch("https://around-api.en.tripleten-services.com/v1", {
           headers: {
-            authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6"
+            authorization: "5b40f66f-c611-4855-8659-c2085a4f3c96"
           }
         })
           .then(res => {
@@ -22,4 +22,4 @@ class Api {
     // other methods for working with the API
 }
   
-export default Api;  
+export default Api;

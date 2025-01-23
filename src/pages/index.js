@@ -1,4 +1,9 @@
 import "./index.css";
+import Api from "../scripts/api.js";
+
+import logoEl from "../image/logo.svg";
+const logoElement = document.getElementById("logo");
+logoElement.src = logoEl;
 
 import profilePic from "../image/avatar.jpg";
 const profilePicEl = document.getElementById("profile-pic");
@@ -13,6 +18,22 @@ const newPostEl = document.getElementById("new-post");
 newPostEl.src = newPost;
 
 import { enableValidation, resetValidation, config } from "../scripts/validation.js";
+
+const api = new Api({
+    baseUrl: "https://around-api.en.tripleten-services.com/v1",
+    headers: {
+      authorization: "5b40f66f-c611-4855-8659-c2085a4f3c96",
+      "Content-Type": "application/json"
+    }
+});
+
+api.getInitialCards() .then((cards) => {
+    cards.forEach((item, i, arr) => {
+        const cardElement = getCardElement(item);
+        cardsList.append(cardElement);
+    });    
+});
+
 
 const initialCards = [
     {name: "Val Thorens", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg"},
@@ -133,11 +154,6 @@ addCardCloseButton.addEventListener("click", (evt) => {
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 addFormElement.addEventListener("submit", handleAddFormElement);
 
-initialCards.forEach((item, i, arr) => {
-    const cardElement = getCardElement(item);
-    cardsList.append(cardElement);
-});
-
 
 function closeModalEsc(evt) {
     if (evt.key === "Escape") {
@@ -147,13 +163,6 @@ function closeModalEsc(evt) {
 };
 
 
-const api = new Api({
-    baseUrl: "https://around-api.en.tripleten-services.com/v1",
-    headers: {
-      authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
-      "Content-Type": "application/json"
-    }
-});
 
 
 const modals = document.querySelectorAll(".modal");
