@@ -1,5 +1,6 @@
-import { enableValidation, resetValidation, config } from "./validation.js";
-import "./src/pages/index.css";
+import "./index.css";
+import { enableValidation, resetValidation, config } from "../scripts/validation.js";
+
 const initialCards = [
     {name: "Val Thorens", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg"},
     {name: "Resturant terrance", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg"},
