@@ -1,15 +1,14 @@
 // scrpits/api.js
 
 class Api {
-    constructor(options) {
-      
+    constructor(baseUrl, headers) {
+      this._baseUrl = baseUrl;
+      this._headers = headers;
     }
   
     getInitialCards() {
-        return fetch(" https://around-api.en.tripleten-services.com/v1/cards", {
-          headers: {
-            authorization: "5b40f66f-c611-4855-8659-c2085a4f3c96"
-          }
+        return fetch(`${this._baseUrl}/cards`, {
+          headers: this._headers,
         })
           .then(res => {
             if (res.ok) {
@@ -20,6 +19,7 @@ class Api {
           .catch(error => {
             console.log('Error fetching data', error);
           });
+          
     }
   
     // other methods for working with the API
