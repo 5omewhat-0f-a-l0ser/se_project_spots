@@ -27,21 +27,31 @@ const api = new Api({
     }
 });
 
-api.getInitialCards()
-  .then(cards => {
-    if (Array.isArray(cards)) {
-        cards.forEach((item, i, arr) => {
-            const cardElement = getCardElement(item);
-            cardsList.append(cardElement);
-        }); 
-    } else {
-      console.error('Received data is not an array:', cards);
-    }
-  })
-  .catch((error) => {
+//api.getInitialCards()
+//.then(cards => {
+//if (Array.isArray(cards)) {
+//    cards.forEach((item, i, arr) => {
+//        const cardElement = getCardElement(item);
+//        cardsList.append(cardElement);
+//    }); 
+//} else {
+//    console.error('Received data is not an array:', cards);
+//}
+//})
+//.catch((error) => {
+//    console.error('Error fetching initial cards:', error)
+//});
+
+api.getAppInfo()
+.then(cards => {
+    cards.forEach((item, i, arr) => {
+        const cardElement = getCardElement(item);
+        cardsList.append(cardElement);
+    });
+})
+.catch((error) => {
     console.error('Error fetching initial cards:', error)
 });
-
 
 const initialCards = [
     {name: "Val Thorens", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg"},
