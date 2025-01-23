@@ -1,4 +1,17 @@
 import "./index.css";
+
+import profilePic from "./image/avatar.jpg";
+const profilePic = document.getElementById("profile-pic");
+profilePic.src = profilePic;
+
+import editPen from "./image/edit-profile-pen.svg";
+const editPen = document.getElementById("edit-pen");
+editPen.src = editPen;
+
+import newPost from "./image/new-post-btn.svg";
+const newPost = document.getElementById("new-post");
+newPost.src = newPost;
+
 import { enableValidation, resetValidation, config } from "../scripts/validation.js";
 
 const initialCards = [
