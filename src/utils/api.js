@@ -24,7 +24,7 @@ class Api {
           });
     }
   
-    // other methods for working with the API
+    // create more methods(ie: getUserInfo, etc.) for the api with a diff baseUrrrrrrrl
 }
   
 export default Api;

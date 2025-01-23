@@ -110,16 +110,17 @@ function getCardElement(data) {
     return cardElement;
 };
 
-api.getAppInfo()
-.then(cards => {
+api
+  .getAppInfo()
+  .then(([cards]) => {
     cards.forEach((item, i, arr) => {
-        const cardElement = getCardElement(item);
-        cardsList.append(cardElement);
+      const cardElement = getCardElement(item);
+      cardsList.append(cardElement);
     });
-})
-.catch((error) => {
-    console.error('Error fetching initial cards:', error)
-});
+  })
+  .catch((error) => {
+    console.error("Error fetching initial cards:", error);
+  });
 
 previewModalCloseButton.addEventListener("click", (evt) => {
     closeModal(previewModal);
