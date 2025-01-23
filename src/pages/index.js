@@ -42,16 +42,6 @@ const api = new Api({
 //    console.error('Error fetching initial cards:', error)
 //});
 
-api.getAppInfo()
-.then(cards => {
-    cards.forEach((item, i, arr) => {
-        const cardElement = getCardElement(item);
-        cardsList.append(cardElement);
-    });
-})
-.catch((error) => {
-    console.error('Error fetching initial cards:', error)
-});
 
 const initialCards = [
     {name: "Val Thorens", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg"},
@@ -119,6 +109,17 @@ function getCardElement(data) {
 
     return cardElement;
 };
+
+api.getAppInfo()
+.then(cards => {
+    cards.forEach((item, i, arr) => {
+        const cardElement = getCardElement(item);
+        cardsList.append(cardElement);
+    });
+})
+.catch((error) => {
+    console.error('Error fetching initial cards:', error)
+});
 
 previewModalCloseButton.addEventListener("click", (evt) => {
     closeModal(previewModal);
