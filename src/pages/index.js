@@ -38,7 +38,9 @@ api.getInitialCards()
       console.error('Received data is not an array:', cards);
     }
   })
-  .catch(error => console.error('Error fetching initial cards:', error));
+  .catch((error) => {
+    console.error('Error fetching initial cards:', error)
+});
 
 
 const initialCards = [

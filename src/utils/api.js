@@ -1,5 +1,3 @@
-// scrpits/api.js
-
 class Api {
     constructor(baseUrl, headers) {
       this._baseUrl = baseUrl;
@@ -8,7 +6,7 @@ class Api {
   
     getInitialCards() {
         return fetch(`${this._baseUrl}/cards`, {
-          headers: this._headers,
+          headers: this._headers, 
         })
           .then(res => {
             if (res.ok) {
@@ -19,7 +17,7 @@ class Api {
           .catch(error => {
             console.log('Error fetching data', error);
           });
-          
+          console.log('Base URL:', this._baseUrl);
     }
   
     // other methods for working with the API
