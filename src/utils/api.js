@@ -1,5 +1,5 @@
 class Api {
-    constructor(baseUrl, headers) {
+    constructor( {baseUrl, headers} ) {
       this._baseUrl = baseUrl;
       this._headers = headers;
     }
@@ -17,7 +17,6 @@ class Api {
           .catch(error => {
             console.log('Error fetching data', error);
           });
-          console.log('Base URL:', this._baseUrl);
     }
   
     // other methods for working with the API
