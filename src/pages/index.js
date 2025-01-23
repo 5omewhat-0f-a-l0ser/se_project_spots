@@ -1,5 +1,5 @@
 import "./index.css";
-import Api from "../scripts/api.js";
+import Api from "../utils/api.js";
 
 import logoEl from "../image/logo.svg";
 const logoElement = document.getElementById("logo");
@@ -27,12 +27,18 @@ const api = new Api({
     }
 });
 
-api.getInitialCards() .then((cards) => {
-    cards.forEach((item, i, arr) => {
-        const cardElement = getCardElement(item);
-        cardsList.append(cardElement);
-    });    
-});
+api.getInitialCards()
+  .then(cards => {
+    if (Array.isArray(cards)) {
+        cards.forEach((item, i, arr) => {
+            const cardElement = getCardElement(item);
+            cardsList.append(cardElement);
+        }); 
+    } else {
+      console.error('Received data is not an array:', cards);
+    }
+  })
+  .catch(error => console.error('Error fetching initial cards:', error));
 
 
 const initialCards = [

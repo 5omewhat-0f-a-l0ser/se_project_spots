@@ -6,7 +6,7 @@ class Api {
     }
   
     getInitialCards() {
-        return fetch("https://around-api.en.tripleten-services.com/v1", {
+        return fetch(" https://around-api.en.tripleten-services.com/v1/cards", {
           headers: {
             authorization: "5b40f66f-c611-4855-8659-c2085a4f3c96"
           }
@@ -16,6 +16,9 @@ class Api {
               return res.json();
             }
             return Promise.reject(`Error: ${res.status}`);
+          })
+          .catch(error => {
+            console.log('Error fetching data', error);
           });
     }
   
