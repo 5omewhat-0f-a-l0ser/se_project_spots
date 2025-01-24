@@ -112,7 +112,7 @@ function getCardElement(data) {
 
 api
   .getAppInfo()
-  .then(([cards]) => {
+  .then(([cards, userData]) => {
     cards.forEach((item, i, arr) => {
       const cardElement = getCardElement(item);
       cardsList.append(cardElement);
@@ -121,7 +121,6 @@ api
   .catch((error) => {
     console.error("Error fetching initial cards:", error);
   });
-  .getUserInfo()
 
 previewModalCloseButton.addEventListener("click", (evt) => {
     closeModal(previewModal);
