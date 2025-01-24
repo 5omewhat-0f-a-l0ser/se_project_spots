@@ -5,7 +5,7 @@ class Api {
     }
 
     getAppInfo() {
-      return Promise.all([this.getInitialCards(), this.getUserInfo()])
+      return Promise.all([this.getInitialCards(), this.getUserInfo(), this.editUserInfo()])
     }
 
   
@@ -27,22 +27,19 @@ class Api {
     // create more methods(ie: getUserInfo, etc.) for the api with a diff baseUrl
 
     getUserInfo() {
-      return fetch(`${this._baseUrl}/me`, {
+      return fetch(`${this._baseUrl}/users/me`, {
         method: 'GET',
-        headers: {
-          authorization: this._headers,
-          'Content-Type': 'application/json'
-        }
+        headers: this._headers
       })
         .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
+        // .then(data => console.log(data)) --- remove this line
+        // .catch(error => console.error('Error:', error)); --- remove this line
     }
 
 
 
     editUserInfo() {
-      fetch(`${this._baseUrl}/me`, {
+      return fetch(`${this._baseUrl}/users/me`, {
         method: 'PATCH',
         headers: {
           authorization: this._headers,
