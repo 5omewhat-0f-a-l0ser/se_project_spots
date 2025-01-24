@@ -121,6 +121,7 @@ api
   .catch((error) => {
     console.error("Error fetching initial cards:", error);
   });
+  .getUserInfo()
 
 previewModalCloseButton.addEventListener("click", (evt) => {
     closeModal(previewModal);

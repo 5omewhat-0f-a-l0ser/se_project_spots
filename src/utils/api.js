@@ -24,7 +24,39 @@ class Api {
           });
     }
   
-    // create more methods(ie: getUserInfo, etc.) for the api with a diff baseUrrrrrrrl
+    // create more methods(ie: getUserInfo, etc.) for the api with a diff baseUrl
+
+    getUserInfo() {
+      return fetch(`${this._baseUrl}/me`, {
+        method: 'GET',
+        headers: {
+          authorization: this._headers,
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+    }
+
+
+
+    editUserInfo() {
+      fetch(`${this._baseUrl}/me`, {
+        method: 'PATCH',
+        headers: {
+          authorization: this._headers,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: 'New Name',
+          email: 'newemail@example.com'
+        })
+      })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+    }
 }
   
 export default Api;
