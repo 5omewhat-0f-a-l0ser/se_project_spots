@@ -2,6 +2,7 @@ class Api {
     constructor( {baseUrl, headers} ) {
       this._baseUrl = baseUrl;
       this._headers = headers;
+      this.userName = profileName;
     }
 
     getAppInfo() {
@@ -32,8 +33,7 @@ class Api {
         headers: this._headers
       })
         .then(response => response.json())
-        // .then(data => console.log(data)) --- remove this line
-        // .catch(error => console.error('Error:', error)); --- remove this line
+        
     }
 
 
@@ -46,12 +46,12 @@ class Api {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          name: 'New Name',
-          email: 'newemail@example.com'
+          name: this.userName,
+          email: this.userEmail;
         })
       })
         .then(response => response.json())
-        .then(data => console.log(data))
+        //.then(data => console.log(data))
         .catch(error => console.error('Error:', error));
     }
 }

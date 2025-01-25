@@ -112,7 +112,7 @@ function getCardElement(data) {
 
 api
   .getAppInfo()
-  .then(([cards, userData]) => {
+  .then(([cards, userData, editData]) => {
     cards.forEach((item, i, arr) => {
       const cardElement = getCardElement(item);
       cardsList.append(cardElement);
