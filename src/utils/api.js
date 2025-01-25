@@ -2,7 +2,6 @@ class Api {
     constructor( {baseUrl, headers} ) {
       this._baseUrl = baseUrl;
       this._headers = headers;
-      this.userName = profileName;
     }
 
     getAppInfo() {
@@ -47,11 +46,11 @@ class Api {
         },
         body: JSON.stringify({
           name: this.userName,
-          email: this.userEmail;
+          email: this.userEmail,
         })
       })
         .then(response => response.json())
-        //.then(data => console.log(data))
+        .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
     }
 }
