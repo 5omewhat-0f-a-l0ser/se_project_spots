@@ -17,7 +17,7 @@ import newPost from "../image/new-post-btn.svg";
 const newPostEl = document.getElementById("new-post");
 newPostEl.src = newPost;
 
-import { enableValidation, resetValidation, config } from "../scripts/validation.js";
+import { enableValidation, resetValidation, disableButton, config } from "../scripts/validation.js";
 
 const api = new Api({
     baseUrl: "https://around-api.en.tripleten-services.com/v1",
