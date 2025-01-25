@@ -37,7 +37,7 @@ class Api {
 
 
 
-    editUserInfo() {
+    editUserInfo({ name, about }) {
       return fetch(`${this._baseUrl}/users/me`, {
         method: 'PATCH',
         headers: {
@@ -45,8 +45,8 @@ class Api {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          name: this.userName,
-          email: this.userEmail,
+          name,
+          about,
         })
       })
         .then(response => response.json())
