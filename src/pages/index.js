@@ -57,6 +57,7 @@ const profileEditButton = document.querySelector(".profile__edit-btn");
 const profileName = document.querySelector(".profile__name");
 const descriptionName = document.querySelector(".profile__description");
 const addCardButton = document.querySelector(".profile__add-btn");
+const editAvatarButton = document.querySelector(".profile__avatar-btn");
 
 const editModal = document.querySelector("#edit-profile-modal");
 const editFormElement = editModal.querySelector(".modal__form");
@@ -76,6 +77,12 @@ const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = previewModal.querySelector(".modal__image");
 const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
 const previewModalCloseButton = previewModal.querySelector(".modal__close");
+
+const avatarModal = document.querySelector("#avatar-modal");
+const avatarCloseButton = avatarModal.querySelector(".modal__close");
+const avatarSubmit = avatarModal.querySelector(".modal__submit");
+const avatarFormElement = avatarModal.querySelector(".modal__form");
+const avatarLink = avatarModal.querySelector("#profile-avatar-input");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
@@ -144,7 +151,7 @@ function handleEditFormSubmit(evt) {
     closeModal(editModal);
 };
 
-function handleAddFormElement(evt) {
+function handleAddFormSubmit(evt) {
     evt.preventDefault();
     const inputValues = {name: addCardCaption.value, link: addCardLink.value };
     const cardElement = getCardElement(inputValues);
@@ -152,6 +159,15 @@ function handleAddFormElement(evt) {
     evt.target.reset();
     disableButton(addCardSubmit, config);
     closeModal(addCardModal);
+};
+
+function handleAvatarFormSubmit(evt) {
+    evt.preventDefault();
+    const avatarInput = {link: avatarLink.value };
+    api.editAvatarInfo(avatarInput);
+    evt.target.reset();
+    disableButton(avatarSubmit, config);
+    closeModal(avatarModal);
 };
 
 profileEditButton.addEventListener("click", () => {
@@ -170,10 +186,18 @@ addCardButton.addEventListener("click", () => {
 addCardCloseButton.addEventListener("click", (evt) => {
     closeModal(addCardModal);
 });
+editAvatarButton.addEventListener("click", () => {
+    openModal(avatarModal);
+});
+avatarCloseButton.addEventListener("click", (evt) => {
+    closeModal(avatarModal);
+});
+
+
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
-addFormElement.addEventListener("submit", handleAddFormElement);
-
+addFormElement.addEventListener("submit", handleAddFormSubmit);
+avatarFormElement.addEventListener("submit", handleAvatarFormSubmit);
 
 function closeModalEsc(evt) {
     if (evt.key === "Escape") {

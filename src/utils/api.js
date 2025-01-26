@@ -50,7 +50,17 @@ class Api {
         .catch(error => console.error('Error:', error));
     }
 
-    
+    editAvatarInfo({ avatar }) {
+      return fetch(`${this._baseUrl}/users/me`, {
+        method: 'PATCH',
+        headers: this._headers,
+        body: JSON.stringify({
+          avatar
+      })
+        .then(response => response.json())
+        .catch(error => console.error('Error:', error))
+      })
+    }   
 
     //--card functions--
 
