@@ -54,8 +54,9 @@
   position: absolute;
   width: 100%;
   height: 100%;
+
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
   color: rgba(255, 255, 255, 1);
@@ -65,6 +66,12 @@
   font-size: 16px;
   line-height: 1;
   gap: 8px;
+
+  visibility: hidden;
+}
+
+.profile__avatar-container:hover .profile__avatar-btn {
+  visibility: visible;
 }
 
 .profile__avatar {
@@ -127,6 +134,9 @@
 
   }
 
+  .profile__avatar-btn {
+    visibility: visible;
+  }
   .profile__name {
     font-size: 20px;
     margin: 0 0 6px;
