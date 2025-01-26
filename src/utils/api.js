@@ -51,17 +51,19 @@ class Api {
     }
 
     editAvatarInfo({ avatar }) {
-      return fetch(`${this._baseUrl}/users/me`, {
+      return fetch(`${this._baseUrl}/users/me/avatar`, {
         method: 'PATCH',
         headers: this._headers,
         body: JSON.stringify({
           avatar
+        })
       })
-        .then(response => response.json())
-        .catch(error => console.error('Error:', error))
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
       })
-    }   
-
+      .catch(error => console.error('Error:', error));
+    }
     //--card functions--
 
     addNewCard() {
