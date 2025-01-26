@@ -50,6 +50,8 @@ class Api {
         .catch(error => console.error('Error:', error));
     }
 
+    
+
     //--card functions--
 
     addNewCard() {
@@ -71,6 +73,7 @@ class Api {
           console.log('Error fetching data', error);
         });
     }
+    
 }
   
 export default Api;
