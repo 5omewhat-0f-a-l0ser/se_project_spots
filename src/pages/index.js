@@ -163,7 +163,8 @@ function handleAddFormSubmit(evt) {
 
 function handleAvatarFormSubmit(evt) {
     evt.preventDefault();
-    api.editAvatarInfo(avatarLink.value);
+    const avatarInput = {avatar: avatarLink.value };
+    api.editAvatarInfo(avatarInput);
     evt.target.reset();
     disableButton(avatarSubmit, config);
     closeModal(avatarModal);
