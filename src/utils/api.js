@@ -85,6 +85,25 @@ class Api {
           console.log('Error fetching data', error);
         });
     }
+
+    deleteCard() {
+      return fetch(`${this._baseUrl}/cards`, {
+        method: 'DELETE',
+        headers: this._headers,
+        body: JSON.stringify({
+          
+        })
+      })
+        .then(res => {
+          if (res.ok) {
+            return res.json();
+          }
+          return Promise.reject(`Error: ${res.status}`);
+        })
+        .catch(error => {
+          console.log('Error fetching data', error);
+        });
+    }
     
 }
   

@@ -158,6 +158,16 @@
     margin-top: 8px;
 }
 
+/*deletes*/
+.modal__delete {
+
+}
+
+/*cancels*/
+.modal__cancel {
+
+}
+
 @media screen and (max-width: 627px) {
     .modal {
         padding: 0 10px;
