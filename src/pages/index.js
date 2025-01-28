@@ -33,7 +33,7 @@ const api = new Api({
 //    cards.forEach((item, i, arr) => {
 //        const cardElement = getCardElement(item);
 //        cardsList.append(cardElement);
-//    }); 
+//    });
 //} else {
 //    console.error('Received data is not an array:', cards);
 //}
@@ -117,6 +117,17 @@ function getCardElement(data) {
     return cardElement;
 };
 
+function handleDeleteSubmit() => {
+  api
+    .deleteCardCard() // pass the ID the the api function
+    .then(() => {
+      closeModal();
+    })
+    .catch(console.error);
+};
+
+deleteForm.addEventListener("submit", handleDeleteSubmit);
+
 api
   .getAppInfo()
   .then(([cards, userData, editData]) => {
@@ -170,6 +181,7 @@ function handleAvatarFormSubmit(evt) {
     closeModal(avatarModal);
 };
 
+
 profileEditButton.addEventListener("click", () => {
     openModal(editModal);
     resetValidation(editFormElement, [editModalNameInput, editModalDescriptionInput],config);
@@ -221,4 +233,3 @@ modals.forEach((modal) => {
     modal.addEventListener("mousedown", closeOverlay);
 });
 
-    
