@@ -94,6 +94,9 @@ const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 const cardContainer = document.querySelector(".card");
 
+let selectedCard;
+let selectedCardId;
+
 function getCardElement(data) {
     const cardElement = cardTemplate.content.querySelector(".card").cloneNode(true);
     const cardNameEl = cardElement.querySelector(".card__title");
@@ -130,11 +133,11 @@ function handleDeleteCard(cardElement, data) {
     selectedCardId = data;
 };
 
-function handleDeleteSubmit(data) {
+function handleDeleteSubmit(selectedCard, selectedCardId) {
     api
-    .removeCard(data) // pass the ID the the api function
-    .then(() => {
-      cardElement.remove();
+    .removeCard(selectedCardId) // pass the ID the the api function
+    .then((selectedCard) => {
+      cardElement.remove(selectedCard);
       closeModal(deleteFormElement);
     })
     .catch(console.error);
