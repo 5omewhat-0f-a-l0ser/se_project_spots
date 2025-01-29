@@ -135,7 +135,7 @@ function handleDeleteCard(cardElement, data) {
 
 function handleDeleteSubmit(selectedCard, selectedCardId) {
     api
-    .removeCard(selectedCardId) // pass the ID the the api function
+    .deleteCard(selectedCardId) // pass the ID the the api function
     .then((selectedCard) => {
       cardElement.remove(selectedCard);
       closeModal(deleteFormElement);
