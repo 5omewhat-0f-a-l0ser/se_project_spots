@@ -111,6 +111,7 @@ function getCardElement(data) {
 
     cardDeleteButton.addEventListener("click", () => {
         cardElement.remove();
+        handleDeleteCard(cardElement, data);
     })
 
     cardImageEl.addEventListener("click", () => {
@@ -121,18 +122,25 @@ function getCardElement(data) {
     })
 
     return cardElement;
+    
 };
 
-function handleDeleteSubmit() => {
-  api
-    .deleteCard(cardId) // pass the ID the the api function
+function handleDeleteCard(cardElement, data) {
+    selectedCard = cardElement;   // Assign the card element to selectedCard
+    selectedCardId = data;
+};
+
+function handleDeleteSubmit(data) {
+    api
+    .removeCard(data) // pass the ID the the api function
     .then(() => {
-      closeModal();
+      cardElement.remove();
+      closeModal(deleteFormElement);
     })
     .catch(console.error);
 };
 
-deleteForm.addEventListener("submit", handleDeleteSubmit);
+
 
 api
   .getAppInfo()
@@ -210,12 +218,19 @@ editAvatarButton.addEventListener("click", () => {
 avatarCloseButton.addEventListener("click", (evt) => {
     closeModal(avatarModal);
 });
+cardDeleteButton.addEventListener("click", () => {
+    openModal(deleteModal);
+});
+deleteCloseButton.addEventListener("click", (evt) => {
+    closeModal(deleteModal);
+});
 
 
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 addFormElement.addEventListener("submit", handleAddFormSubmit);
 avatarFormElement.addEventListener("submit", handleAvatarFormSubmit);
+deleteFormElement.addEventListener("submit", handleDeleteSubmit);
 
 function closeModalEsc(evt) {
     if (evt.key === "Escape") {
