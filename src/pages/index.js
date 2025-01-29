@@ -113,8 +113,8 @@ function getCardElement(data) {
     });
 
     cardDeleteButton.addEventListener("click", () => {
-        cardElement.remove();
         handleDeleteCard(cardElement, data);
+        cardElement.remove();
     })
 
     cardImageEl.addEventListener("click", () => {
@@ -129,9 +129,10 @@ function getCardElement(data) {
 };
 
 function handleDeleteCard(cardElement, data) {
-    selectedCard = cardElement;   // Assign the card element to selectedCard
+    selectedCard = cardElement; // Assign the card element to selectedCard
     selectedCardId = data;
-};
+    openModal(deleteModal);
+}
 
 
 
@@ -190,17 +191,13 @@ function handleAddFormSubmit(evt) {
       // .finally(() => setButtonText(button, false));
 };
 
-function handleDeleteSubmit(event) {
-    event.preventDefault()
-    debugger
-    const button = event.submitter;
-    setButtonText(button, true, "Delete", "Deleting...");
+function handleDeleteSubmit() {
     api
       .deleteCard(selectedCardId) // pass the ID the the api function
       .then(() => {
         cardElement.remove(selectedCard);
         selectedCard.remove()
-        closeModal(deleteModal);
+        closeModal(deleteFormElement);
       })
       .catch(console.error);
       //.finally(() => setButtonText(button, false, "Delete", "Deleting..."));

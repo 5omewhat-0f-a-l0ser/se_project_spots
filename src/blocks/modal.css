@@ -160,24 +160,24 @@
 
 /*deletes*/
 .modal__delete {
-    width: Fixed (156px)px;
-    height: Hug (52px)px;
+    width: 156px;
+    height: 52px;
     padding: 18px 32px 18px 32px;
     gap: 8px;
     border-radius: 8px 0px 0px 0px;
-    opacity: 0px;
+    opacity: 1;
     background-color: rgba(255, 101, 101, 1);
 }
 
 /*cancels*/
 .modal__cancel {
-    width: Fixed (156px)px;
-    height: Hug (52px)px;
+    width: 156px;
+    height: 52px;
     padding: 18px 32px 18px 32px;
     gap: 8px;
     border-radius: 8px 0px 0px 0px;
     border: 1px 0px 0px 0px;
-    opacity: 0px;
+    opacity: 1;
     border-color: (33, 33, 33, 1);
     border: 1px;
 }
