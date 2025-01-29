@@ -86,23 +86,20 @@ class Api {
         });
     }
 
-    deleteCard() {
-      return fetch(`${this._baseUrl}/cards`, {
+    deleteCard(cardId) {
+      return fetch(`${this._baseUrl}/cards/${cardId}`, {
         method: 'DELETE',
-        headers: this._headers,
-        body: JSON.stringify({
-          
-        })
+        headers: this._headers
       })
-        .then(res => {
-          if (res.ok) {
-            return res.json();
-          }
-          return Promise.reject(`Error: ${res.status}`);
-        })
-        .catch(error => {
-          console.log('Error fetching data', error);
-        });
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .catch(error => {
+        console.log('Error fetching data', error);
+      });
     }
     
 }

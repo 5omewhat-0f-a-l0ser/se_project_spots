@@ -84,6 +84,12 @@ const avatarSubmit = avatarModal.querySelector(".modal__submit");
 const avatarFormElement = avatarModal.querySelector(".modal__form");
 const avatarLink = avatarModal.querySelector("#profile-avatar-input");
 
+const deleteModal = document.querySelector("#delete-card-modal");
+const deleteCloseButton = deleteModal.querySelector(".modal__close");
+const deleteSubmit = deleteModal.querySelector(".modal__submit");
+const deleteFormElement = deleteModal.querySelector(".modal__form");
+
+
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 const cardContainer = document.querySelector(".card");
@@ -119,7 +125,7 @@ function getCardElement(data) {
 
 function handleDeleteSubmit() => {
   api
-    .deleteCardCard() // pass the ID the the api function
+    .deleteCard(cardId) // pass the ID the the api function
     .then(() => {
       closeModal();
     })
