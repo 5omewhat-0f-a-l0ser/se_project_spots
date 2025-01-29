@@ -66,7 +66,7 @@ class Api {
     }
     //--card functions--
 
-    addNewCard() {
+    addNewCard({cardName, cardLink}) {
       return fetch(`${this._baseUrl}/cards`, {
         method: 'POST',
         headers: this._headers,
@@ -104,7 +104,7 @@ class Api {
 
     //---Likes and unlikes--
 
-    
+
     
 }
   

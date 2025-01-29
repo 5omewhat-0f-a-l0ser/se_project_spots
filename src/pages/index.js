@@ -133,15 +133,6 @@ function handleDeleteCard(cardElement, data) {
     selectedCardId = data;
 };
 
-function handleDeleteSubmit(selectedCard, selectedCardId) {
-    api
-    .deleteCard(selectedCardId) // pass the ID the the api function
-    .then((selectedCard) => {
-      cardElement.remove(selectedCard);
-      closeModal(deleteFormElement);
-    })
-    .catch(console.error);
-};
 
 
 
@@ -181,12 +172,38 @@ function handleEditFormSubmit(evt) {
 
 function handleAddFormSubmit(evt) {
     evt.preventDefault();
-    const inputValues = {name: addCardCaption.value, link: addCardLink.value };
-    const cardElement = getCardElement(inputValues);
-    cardsList.prepend(cardElement);
-    evt.target.reset();
-    disableButton(addCardSubmit, config);
-    closeModal(addCardModal);
+    const formData = {cardName: addCardCaption.value, cardLink: addCardLink.value };
+    // const cardElement = getCardElement(inputValues);
+    const button = evt.target.querySelector(".modal__button");
+    // setButtonText(button, true);
+
+  api
+    .addNewCard(formData)
+    .then((res) => {
+      const cardElement = getCardElement(res);
+      cardsList.prepend(cardElement);
+      closeModal(addCardModal);
+      evt.target.reset();
+      disableButton(addCardSubmit, config);
+    })
+    .catch(console.error);
+      // .finally(() => setButtonText(button, false));
+};
+
+function handleDeleteSubmit(event) {
+    event.preventDefault()
+    debugger
+    const button = event.submitter;
+    setButtonText(button, true, "Delete", "Deleting...");
+    api
+      .deleteCard(selectedCardId) // pass the ID the the api function
+      .then(() => {
+        cardElement.remove(selectedCard);
+        selectedCard.remove()
+        closeModal(deleteModal);
+      })
+      .catch(console.error);
+      //.finally(() => setButtonText(button, false, "Delete", "Deleting..."));
 };
 
 function handleAvatarFormSubmit(evt) {
@@ -222,10 +239,10 @@ avatarCloseButton.addEventListener("click", (evt) => {
     closeModal(avatarModal);
 });
 cardDeleteButton.addEventListener("click", () => {
-    openModal(deleteModal);
-});
+    openModal(deleteModal)
+  });
 deleteCloseButton.addEventListener("click", (evt) => {
-    closeModal(deleteModal);
+    closeModal(deleteModal)
 });
 
 
