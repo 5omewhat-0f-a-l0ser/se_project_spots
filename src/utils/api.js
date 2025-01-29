@@ -104,8 +104,25 @@ class Api {
 
     //---Likes and unlikes--
 
-
+    likeCard() {
+      return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+        method: 'PATCH',
+        headers: this._headers,
+      })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+    }
     
+    unLikeCard() {
+      return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+        method: 'DELETE',
+        headers: this._headers,
+      })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+    }
 }
   
 export default Api;
