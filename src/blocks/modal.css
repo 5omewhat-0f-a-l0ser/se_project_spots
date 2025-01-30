@@ -165,6 +165,7 @@
     padding: 18px 32px 18px 32px;
     gap: 8px;
     border-radius: 8px 0px 0px 0px;
+    border: none;
     opacity: 1;
     background-color: rgba(255, 101, 101, 1);
     position: relative;
@@ -180,7 +181,6 @@
     border-radius: 8px 0px 0px 0px;
     border: 1px 0px 0px 0px;
     opacity: 1;
-    border-color: (33, 33, 33, 1);
     border: 1px;
     position: relative;
     left: 157px;
