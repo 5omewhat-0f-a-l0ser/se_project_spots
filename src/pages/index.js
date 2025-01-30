@@ -235,9 +235,6 @@ editAvatarButton.addEventListener("click", () => {
 avatarCloseButton.addEventListener("click", (evt) => {
     closeModal(avatarModal);
 });
-cardDeleteButton.addEventListener("click", () => {
-    openModal(deleteModal)
-  });
 deleteCloseButton.addEventListener("click", (evt) => {
     closeModal(deleteModal)
 });
