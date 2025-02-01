@@ -130,7 +130,7 @@ function getCardElement(data) {
 
 function handleDeleteCard(cardElement, data) {
     selectedCard = cardElement; // Assign the card element to selectedCard
-    selectedCardId = data;
+    selectedCardId = data._id;
     openModal(deleteModal);
 }
 
@@ -144,6 +144,10 @@ api
       const cardElement = getCardElement(item);
       cardsList.append(cardElement);
     });
+
+    profileName.textContent = userData.name; // set the user name with the api response
+    descriptionName.textContent = userData.about; // set the user about with the api response
+    profilePicEl.src = userData.avatar; // set the user avatar with the api response
   })
   .catch((error) => {
     console.error("Error fetching initial cards:", error);
@@ -191,11 +195,13 @@ function handleAddFormSubmit(evt) {
       // .finally(() => setButtonText(button, false));
 };
 
-function handleDeleteSubmit() {
+function handleDeleteSubmit(evt) {
+
+    evt.preventDefault(); // prevent the submit button from refreshing the page
+
     api
-      .deleteCard(selectedCardId) // pass the ID the the api function
+      .deleteCard(selectedCardId)
       .then(() => {
-        cardElement.remove(selectedCard);
         selectedCard.remove()
         closeModal(deleteFormElement);
       })
@@ -206,7 +212,10 @@ function handleDeleteSubmit() {
 function handleAvatarFormSubmit(evt) {
     evt.preventDefault();
     const avatarInput = {avatar: avatarLink.value };
-    api.editAvatarInfo(avatarInput);
+    api.editAvatarInfo(avatarInput)
+    
+    profilePicEl.src = avatarInput.avatar;
+    
     evt.target.reset();
     disableButton(avatarSubmit, config);
     closeModal(avatarModal);
