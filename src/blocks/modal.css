@@ -165,10 +165,11 @@
 }
 
 /*forms*/
-.modal_form-delete {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
+.modal__form-delete {
+  display: flex;
+  justify-content: center; /* Centers buttons horizontally */
+  gap: 8px;               /* Space between buttons */
+  width: 100%;            /* Ensures it uses full width of container */
 }
 
 /*deletes*/
@@ -201,9 +202,10 @@
         padding: 0 10px;
     }
 
-    .modal_form {
-        display: flex;
-        justify-content: space-between;
+    .modal_form-delete {
+        flex-direction: column;
+        align-items: center;
+        /*justify-content: space-between;
         align-items: center;
         width: 80%;
         max-width: 400px;
@@ -211,7 +213,12 @@
         max-width: 400px;
         max-height: 90vh;
         padding: 20px;
-        overflow-y: auto;
+        overflow-y: auto;*/
+    }
+
+    .modal__form-delete button {
+      margin-bottom: 12px;
+      width: 100%;
     }
 
     .modal__container {
@@ -230,7 +237,7 @@
     }
 
     .modal__close-delete {
-      
+
     }
 
     .modal__close_preview {
