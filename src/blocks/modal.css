@@ -16,6 +16,7 @@
     opacity: 0;
     transition:opacity 1s ease, transform 1s ease , visibility 1s;
     overflow-y: auto;
+
 }
 
 .modal__content {
@@ -43,9 +44,8 @@
 
 .modal_form {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    justify-content: center;
+    gap: 8px;
 }
 
 
@@ -174,11 +174,11 @@
     height: 52px;
     padding: 18px 32px 18px 32px;
     gap: 8px;
-    border-radius: 8px 0px 0px 0px;
+    border-radius: 8px;
     border: none;
     opacity: 1;
     background-color: rgba(255, 101, 101, 1);
-    
+
 }
 
 /*cancels*/
@@ -187,7 +187,7 @@
     height: 52px;
     padding: 18px 32px 18px 32px;
     gap: 8px;
-    border-radius: 8px 0px 0px 0px;
+    border-radius: 8px;
     border: 1px 0px 0px 0px;
     opacity: 1;
     border: 1px;
@@ -210,7 +210,7 @@
         padding: 20px;
         overflow-y: auto;
     }
-    
+
     .modal__container {
         width: 80%;
         padding: 12px;
@@ -258,7 +258,7 @@
         background-color: rgba(255, 101, 101, 1);
 
     }
-    
+
     /*cancels*/
     .modal__cancel {
         width: 156px;
@@ -270,5 +270,5 @@
         opacity: 1;
         border: 1px;
     }
-    
+
 }

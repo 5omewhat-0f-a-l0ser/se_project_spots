@@ -144,13 +144,14 @@ function handleDeleteCard(cardElement, data) {
     selectedCard = cardElement; // Assign the card element to selectedCard
     selectedCardId = data._id;
     openModal(deleteModal);
-}
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   const cancelButton = document.querySelector('.modal_cancel');
   if (cancelButton) {
     cancelButton.addEventListener('click', () => closeModal());
   }
-})
+});
 
 
 api
