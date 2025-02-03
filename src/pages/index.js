@@ -276,7 +276,7 @@ function closeModalEsc(evt) {
 };
 
 
-
+//am I on the right branch?
 
 const modals = document.querySelectorAll(".modal");
 
