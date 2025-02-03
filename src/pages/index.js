@@ -109,18 +109,16 @@ function getCardElement(data) {
     cardImageEl.alt = data.name;
 
     cardLikeButton.addEventListener("click", () => {
-        const cardId = cardElement.id;
-
         const isLiked = cardLikeButton.classList.contains("card__like-btn_liked");
       
         if (isLiked) {
-          api.unlikeCard(cardId)
+          api.unlikeCard(data._id)
             .then(() => {
               cardLikeButton.classList.toggle("card__like-btn_liked");
             })
             .catch(console.error);
         } else {
-          api.likeCard(cardId)
+          api.likeCard(data._id)
             .then(() => {
               cardLikeButton.classList.toggle("card__like-btn_liked");
             })
