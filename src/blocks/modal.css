@@ -42,11 +42,7 @@
     transform: scale(1);
 }
 
-.modal_form {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-}
+
 
 
 .modal__image {
@@ -168,8 +164,15 @@
     margin-top: 8px;
 }
 
+/*forms*/
+.modal_form-delete {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
 /*deletes*/
-.modal__delete {
+.modal__form-gone {
     width: 156px;
     height: 52px;
     padding: 18px 32px 18px 32px;
@@ -182,7 +185,7 @@
 }
 
 /*cancels*/
-.modal__cancel {
+.modal__form-cancel {
     width: 156px;
     height: 52px;
     padding: 18px 32px 18px 32px;
@@ -224,6 +227,10 @@
     .modal__close {
         top: 12px;
         right: 12px;
+    }
+
+    .modal__close-delete {
+      
     }
 
     .modal__close_preview {
