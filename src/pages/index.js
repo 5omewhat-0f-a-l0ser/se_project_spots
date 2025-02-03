@@ -89,8 +89,6 @@ const deleteCloseButton = deleteModal.querySelector(".modal__close");
 const deleteSubmit = deleteModal.querySelector(".modal__submit");
 const deleteFormElement = deleteModal.querySelector(".modal__form");
 
-const cancelButton = document.querySelector('.modal_cancel');
-
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 const cardContainer = document.querySelector(".card");
@@ -147,10 +145,12 @@ function handleDeleteCard(cardElement, data) {
     selectedCardId = data._id;
     openModal(deleteModal);
 }
-
-
-cancelButton.addEventListener('click', () => closeModal());
-
+document.addEventListener('DOMContentLoaded', () => {
+  const cancelButton = document.querySelector('.modal_cancel');
+  if (cancelButton) {
+    cancelButton.addEventListener('click', () => closeModal());
+  }
+})
 
 
 api
