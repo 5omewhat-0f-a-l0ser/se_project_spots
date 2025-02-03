@@ -109,12 +109,27 @@ function getCardElement(data) {
     cardImageEl.alt = data.name;
 
     cardLikeButton.addEventListener("click", () => {
-        cardLikeButton.classList.toggle("card__like-btn_liked");
-    });
+        const cardId = cardElement.id;
+
+        const isLiked = cardLikeButton.classList.contains("card__like-btn_liked");
+      
+        if (isLiked) {
+          api.unlikeCard(cardId)
+            .then(() => {
+              cardLikeButton.classList.toggle("card__like-btn_liked");
+            })
+            .catch(console.error);
+        } else {
+          api.likeCard(cardId)
+            .then(() => {
+              cardLikeButton.classList.toggle("card__like-btn_liked");
+            })
+            .catch(console.error);
+        }
+      });
 
     cardDeleteButton.addEventListener("click", () => {
         handleDeleteCard(cardElement, data);
-        cardElement.remove();
     })
 
     cardImageEl.addEventListener("click", () => {
@@ -203,7 +218,7 @@ function handleDeleteSubmit(evt) {
       .deleteCard(selectedCardId)
       .then(() => {
         selectedCard.remove()
-        closeModal(deleteFormElement);
+        closeModal(deleteModal);
       })
       .catch(console.error);
       //.finally(() => setButtonText(button, false, "Delete", "Deleting..."));

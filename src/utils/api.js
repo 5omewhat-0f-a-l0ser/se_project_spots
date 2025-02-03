@@ -104,9 +104,9 @@ class Api {
 
     //---Likes and unlikes--
 
-    likeCard() {
+    likeCard(cardId) {
       return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-        method: 'PATCH',
+        method: 'PUT',
         headers: this._headers,
       })
         .then(response => response.json())
@@ -114,7 +114,7 @@ class Api {
         .catch(error => console.error('Error:', error));
     }
     
-    unLikeCard() {
+    unLikeCard(cardId) {
       return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
         method: 'DELETE',
         headers: this._headers,
