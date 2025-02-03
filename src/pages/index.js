@@ -89,6 +89,7 @@ const deleteCloseButton = deleteModal.querySelector(".modal__close");
 const deleteSubmit = deleteModal.querySelector(".modal__submit");
 const deleteFormElement = deleteModal.querySelector(".modal__form");
 
+const cancelButton = document.querySelector('.modal_cancel');
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
@@ -110,7 +111,7 @@ function getCardElement(data) {
 
     cardLikeButton.addEventListener("click", () => {
         const isLiked = cardLikeButton.classList.contains("card__like-btn_liked");
-      
+
         if (isLiked) {
           api.unlikeCard(data._id)
             .then(() => {
@@ -138,7 +139,7 @@ function getCardElement(data) {
     })
 
     return cardElement;
-    
+
 };
 
 function handleDeleteCard(cardElement, data) {
@@ -147,6 +148,8 @@ function handleDeleteCard(cardElement, data) {
     openModal(deleteModal);
 }
 
+
+cancelButton.addEventListener('click', () => closeModal());
 
 
 
@@ -226,9 +229,9 @@ function handleAvatarFormSubmit(evt) {
     evt.preventDefault();
     const avatarInput = {avatar: avatarLink.value };
     api.editAvatarInfo(avatarInput)
-    
+
     profilePicEl.src = avatarInput.avatar;
-    
+
     evt.target.reset();
     disableButton(avatarSubmit, config);
     closeModal(avatarModal);
