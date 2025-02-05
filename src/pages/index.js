@@ -238,7 +238,7 @@ function handleDeleteSubmit(evt) {
 function handleAvatarFormSubmit(evt) {
   evt.preventDefault();
   const avatarInput = { avatar: avatarLink.value };
-
+  console.log(JSON.stringify(avatarInput)); // Log the data being sent
   api.editAvatarInfo(avatarInput)
     .then(data => {
       profilePicEl.src = data.avatar;
