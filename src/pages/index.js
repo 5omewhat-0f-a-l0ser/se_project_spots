@@ -115,7 +115,7 @@ function getCardElement(data) {
       }
 
         if (isLiked) {
-          api.unlikeCard(data._id)
+          api.unLikeCard(data._id)
             .then(() => {
               cardLikeButton.classList.toggle("card__like-btn_liked");
             })
