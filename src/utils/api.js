@@ -1,17 +1,17 @@
 class Api {
     constructor( {baseUrl, headers} ) {
       this._baseUrl = baseUrl;
-      this._headers = headers; 
+      this._headers = headers;
     }
 
     getAppInfo() {
       return Promise.all([this.getInitialCards(), this.getUserInfo()])
     }
 
-  
+
     getInitialCards() {
         return fetch(`${this._baseUrl}/cards`, {
-          headers: this._headers, 
+          headers: this._headers,
         })
           .then(res => {
             if (res.ok) {
@@ -23,17 +23,17 @@ class Api {
             console.log('Error fetching data', error);
           });
     }
-  
+
     // create more methods(ie: getUserInfo, etc.) for the api with a diff baseUrl
     //--user/avatar functions--
-  
+
     getUserInfo() {
       return fetch(`${this._baseUrl}/users/me`, {
         method: 'GET',
         headers: this._headers
       })
         .then(response => response.json())
-        
+
     }
 
     editUserInfo({ name, about }) {
@@ -50,7 +50,7 @@ class Api {
         .catch(error => console.error('Error:', error));
     }
 
-    editAvatarInfo({ avatarInput }) {
+    editAvatarInfo( avatarInput ) {
       return fetch(`${this._baseUrl}/users/me/avatar`, {
         method: 'PATCH',
         headers: this._headers,
@@ -107,7 +107,7 @@ class Api {
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
     }
-    
+
     unLikeCard(cardId) {
       return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
         method: 'DELETE',
@@ -118,5 +118,5 @@ class Api {
         .catch(error => console.error('Error:', error));
     }
 }
-  
+
 export default Api;
