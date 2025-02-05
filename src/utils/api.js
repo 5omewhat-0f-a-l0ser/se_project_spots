@@ -50,19 +50,13 @@ class Api {
         .catch(error => console.error('Error:', error));
     }
 
-    editAvatarInfo({ avatar }) {
+    editAvatarInfo({ avatarInput }) {
       return fetch(`${this._baseUrl}/users/me/avatar`, {
         method: 'PATCH',
         headers: this._headers,
-        body: JSON.stringify({
-          avatar
-        })
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-      })
-      .catch(error => console.error('Error:', error));
+        body: JSON.stringify(avatarInput)
+    })
+      .then(res => res.ok ? res.json() : Promise.reject('Failed to update avatar'))
     }
     //--card functions--
 
