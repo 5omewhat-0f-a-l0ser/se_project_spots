@@ -103,8 +103,8 @@ class Api {
         method: 'PUT',
         headers: this._headers,
       })
-        .then(response => response.json())
-        .then(data => console.log(data))
+      .then(res => res.ok ? res.json() : Promise.reject('Failed to like'))
+        //.then(data => console.log(data))
         .catch(error => console.error('Error:', error));
     }
 
@@ -114,12 +114,12 @@ class Api {
         headers: this._headers,
       })
         .then(response => response.json())
-        .then(data => console.log(data))
+        //.then(data => console.log(data))
         .catch(error => console.error('Error:', error));
     }
 
     //Loading text??//
-    
+
 }
 
 export default Api;

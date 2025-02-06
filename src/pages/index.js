@@ -116,14 +116,16 @@ function getCardElement(data) {
 
         if (isLiked) {
           api.unLikeCard(data._id)
-            .then(() => {
+            .then((response) => {
               cardLikeButton.classList.toggle("card__like-btn_liked");
+              console.log(response);
             })
             .catch(console.error);
         } else {
           api.likeCard(data._id)
-            .then(() => {
+            .then((response) => {
               cardLikeButton.classList.toggle("card__like-btn_liked");
+              console.log(response);
             })
             .catch(console.error);
         }
