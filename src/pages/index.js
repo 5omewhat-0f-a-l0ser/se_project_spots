@@ -221,6 +221,11 @@ function handleAddFormSubmit(evt) {
     const button = evt.target.querySelector(".modal__button");
     // setButtonText(button, true);
 
+    const submitButton = evt.target.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
+
+    submitButton.textContent = 'Saving...';
+
   api
     .addNewCard(formData)
     .then((res) => {
@@ -229,8 +234,13 @@ function handleAddFormSubmit(evt) {
       closeModal(addCardModal);
       evt.target.reset();
       disableButton(addCardSubmit, config);
+      submitButton.textContent = originalText;
     })
-    .catch(console.error);
+    .catch(() => {
+      console.error("Sorry! Something must've gone wrong!");
+      submitButton.textContent = originalText;
+    });
+
       // .finally(() => setButtonText(button, false));
 };
 
@@ -238,23 +248,44 @@ function handleDeleteSubmit(evt) {
 
     evt.preventDefault(); // prevent the submit button from refreshing the page
 
+    const submitButton = evt.target.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
+
+    submitButton.textContent = 'Deleteing...';
+
     api
       .deleteCard(selectedCardId)
       .then(() => {
         selectedCard.remove()
         closeModal(deleteModal);
+        submitButton.textContent = originalText;
+
       })
-      .catch(console.error);
+      .catch(() => {
+        console.error("Sorry! Something must've gone wrong!");
+        submitButton.textContent = originalText;
+      });
+
       //.finally(() => setButtonText(button, false, "Delete", "Deleting..."));
 };
 
 function handleAvatarFormSubmit(evt) {
   evt.preventDefault();
   const avatarInput = { avatar: avatarLink.value };
+
+  const submitButton = evt.target.querySelector('button[type="submit"]');
+  const originalText = submitButton.textContent;
+
+  submitButton.textContent = 'Saving...';
+
   console.log(JSON.stringify(avatarInput)); // Log the data being sent
+
+
   api.editAvatarInfo(avatarInput)
     .then(data => {
       profilePicEl.src = data.avatar;
+      submitButton.textContent = originalText;
+
     })
   .catch(console.error);
 
