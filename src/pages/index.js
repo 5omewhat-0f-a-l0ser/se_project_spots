@@ -107,12 +107,14 @@ function getCardElement(data) {
     cardImageEl.src = data.link;
     cardImageEl.alt = data.name;
 
+    if (data.isLiked) {
+      cardLikeButton.classList.add("card__like-btn_liked");
+  }
+
     cardLikeButton.addEventListener("click", () => {
         const isLiked = cardLikeButton.classList.contains("card__like-btn_liked");
 
-        if (data.isLiked) {
-          cardLikeButton.classList.add("card__like-btn_liked");
-      }
+
 
         if (isLiked) {
           api.unLikeCard(data._id)
@@ -192,7 +194,10 @@ function closeModal(modal) {
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
 
-  //textContent("Saving...");
+  const submitButton = evt.target.querySelector('button[type="submit"]');
+  const originalText = submitButton.textContent;
+
+  submitButton.textContent = 'Saving...';
 
   api.editUserInfo({name: editModalNameInput.value, about: editModalDescriptionInput.value})
   .then(() => {
@@ -200,8 +205,12 @@ function handleEditFormSubmit(evt) {
     descriptionName.textContent = editModalDescriptionInput.value;
     disableButton(editModalSubmit, config);
     closeModal(editModal);
+    submitButton.textContent = originalText;
   })
-  .catch(console.error);
+  .catch(() => {
+    console.error("Sorry! Something must've gone wrong!");
+    submitButton.textContent = originalText;
+  });
 
 };
 

@@ -118,7 +118,6 @@ class Api {
         .catch(error => console.error('Error:', error));
     }
 
-    //Loading text??//
 
 }
 
