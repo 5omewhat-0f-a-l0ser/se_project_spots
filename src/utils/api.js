@@ -117,6 +117,9 @@ class Api {
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
     }
+
+    //Loading text??//
+    
 }
 
 export default Api;

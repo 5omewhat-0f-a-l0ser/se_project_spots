@@ -189,11 +189,13 @@ function closeModal(modal) {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
-  profileName.textContent = editModalNameInput.value;
-  descriptionName.textContent = editModalDescriptionInput.value;
+
+  //textContent("Saving...");
 
   api.editUserInfo({name: editModalNameInput.value, about: editModalDescriptionInput.value})
   .then(() => {
+    profileName.textContent = editModalNameInput.value;
+    descriptionName.textContent = editModalDescriptionInput.value;
     disableButton(editModalSubmit, config);
     closeModal(editModal);
   })
