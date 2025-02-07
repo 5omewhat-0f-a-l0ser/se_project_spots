@@ -117,8 +117,10 @@ class Api {
         //.then(data => console.log(data))
         .catch(error => console.error('Error:', error));
     }
-
-
+    //--Checking response--
+    checkResponse() {
+      
+    }
 }
 
 export default Api;

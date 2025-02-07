@@ -191,13 +191,17 @@ function closeModal(modal) {
    document.removeEventListener("keydown", closeModalEsc);
 }
 
+function setButtonText(button, isLoading, defaultText, loadingText) {
+  if (isLoading) {
+    button.textContent = loadingText;
+  } else {
+    button.textContent = defaultText;
+  }
+}
+
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
 
-  const submitButton = evt.target.querySelector('button[type="submit"]');
-  const originalText = submitButton.textContent;
-
-  submitButton.textContent = 'Saving...';
 
   api.editUserInfo({name: editModalNameInput.value, about: editModalDescriptionInput.value})
   .then(() => {
@@ -205,53 +209,47 @@ function handleEditFormSubmit(evt) {
     descriptionName.textContent = editModalDescriptionInput.value;
     disableButton(editModalSubmit, config);
     closeModal(editModal);
-    submitButton.textContent = originalText;
+    //submitButton.textContent = originalText;
   })
   .catch(() => {
     console.error("Sorry! Something must've gone wrong!");
-    submitButton.textContent = originalText;
-  });
+    //submitButton.textContent = originalText;
+  })
+
+  .finally(() =>{
+   setButtonText(button, false, "Save", "Saving...");
+  }); // Set the button text back to "Save"
 
 };
 
 function handleAddFormSubmit(evt) {
-    evt.preventDefault();
-    const formData = {cardName: addCardCaption.value, cardLink: addCardLink.value };
-    // const cardElement = getCardElement(inputValues);
-    const button = evt.target.querySelector(".modal__button");
-    // setButtonText(button, true);
+  evt.preventDefault();
+  const formData = {cardName: addCardCaption.value, cardLink: addCardLink.value };
 
-    const submitButton = evt.target.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
+  const button = evt.target.querySelector(".modal__button");
 
-    submitButton.textContent = 'Saving...';
 
-  api
-    .addNewCard(formData)
-    .then((res) => {
-      const cardElement = getCardElement(res);
-      cardsList.prepend(cardElement);
-      closeModal(addCardModal);
-      evt.target.reset();
-      disableButton(addCardSubmit, config);
-      submitButton.textContent = originalText;
-    })
-    .catch(() => {
-      console.error("Sorry! Something must've gone wrong!");
-      submitButton.textContent = originalText;
-    });
 
-      // .finally(() => setButtonText(button, false));
+api
+  .addNewCard(formData)
+  .then((res) => {
+    const cardElement = getCardElement(res);
+    cardsList.prepend(cardElement);
+    closeModal(addCardModal);
+    evt.target.reset();
+    disableButton(addCardSubmit, config);
+  })
+  .catch(console.error)
+  .finally(() => setButtonText(button, false, "Save", "Saving...")); // Set the button text back to "Save"
 };
+
+
 
 function handleDeleteSubmit(evt) {
 
     evt.preventDefault(); // prevent the submit button from refreshing the page
 
-    const submitButton = evt.target.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
 
-    submitButton.textContent = 'Deleteing...';
 
     api
       .deleteCard(selectedCardId)
@@ -264,19 +262,18 @@ function handleDeleteSubmit(evt) {
       .catch(() => {
         console.error("Sorry! Something must've gone wrong!");
         submitButton.textContent = originalText;
-      });
+      })
 
-      //.finally(() => setButtonText(button, false, "Delete", "Deleting..."));
+      .finally(() => {
+        setButtonText(button, false, "Delete", "Deleting...");
+      });
 };
 
 function handleAvatarFormSubmit(evt) {
   evt.preventDefault();
   const avatarInput = { avatar: avatarLink.value };
 
-  const submitButton = evt.target.querySelector('button[type="submit"]');
-  const originalText = submitButton.textContent;
-
-  submitButton.textContent = 'Saving...';
+ 
 
   console.log(JSON.stringify(avatarInput)); // Log the data being sent
 
@@ -289,7 +286,9 @@ function handleAvatarFormSubmit(evt) {
       disableButton(avatarSubmit, config);
       closeModal(avatarModal);
     })
-  .catch(console.error);
+  .catch(console.error)
+
+  .finally(() => setButtonText(button, false, "Save", "Saving..."));
 
 
 }
