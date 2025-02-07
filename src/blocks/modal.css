@@ -38,11 +38,11 @@
     width: unset;
 }
 
+
+
 .modal__content.modal_opened {
     transform: scale(1);
 }
-
-
 
 
 .modal__image {
@@ -244,9 +244,9 @@
     }
 
     .modal__close_delete {
-        top: -48px;
-        right: -10zpx;
-    }
+      top: -48px;
+      right: -6px;
+  }
 
     .modal__close_preview {
         top: -48px;
