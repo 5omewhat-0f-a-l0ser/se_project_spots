@@ -49,7 +49,7 @@
 
 .card__like-btn {
   opacity: 0.4;
-  background-image: url(../image/like.svg);
+  background-image: url("../image/like.svg");
   background-position: center;
   background-size: cover;
   width: 23px;

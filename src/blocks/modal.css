@@ -15,6 +15,8 @@
     padding: 0 20px;
     opacity: 0;
     transition:opacity 1s ease, transform 1s ease , visibility 1s;
+    overflow-y: auto;
+
 }
 
 .modal__content {
@@ -39,6 +41,10 @@
 .modal__content.modal_opened {
     transform: scale(1);
 }
+
+
+
+
 .modal__image {
     max-width: 80vw;
     max-height: 80vh;
@@ -62,6 +68,17 @@
     position: relative;
     border-radius: 8px;
 }
+
+.modal__container_delete {
+    background: #fff;
+    padding: 32px 50px;
+    max-width: 730px;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 8px;
+}
+
 /*caption*/
 .modal__caption {
     padding: 4px 8px;
@@ -158,13 +175,61 @@
     margin-top: 8px;
 }
 
+/*forms*/
+.modal__form_delete {
+  display: flex;
+  justify-content: center; /* Centers buttons horizontally */
+  gap: 8px;               /* Space between buttons */
+}
+
+/*deletes*/
+.modal__form_remove {
+    width: 156px;
+    height: 52px;
+    padding: 18px 32px 18px 32px;
+    gap: 8px;
+    border-radius: 8px;
+    border: none;
+    opacity: 1;
+    background-color: rgba(255, 101, 101, 1);
+
+}
+
+/*cancels*/
+.modal__form_cancel {
+    width: 156px;
+    height: 52px;
+    padding: 18px 32px 18px 32px;
+    gap: 8px;
+    border-radius: 8px;
+    border-color:rgba(33, 33, 33, 1);
+    opacity: 1;
+    border: 1px solid rgb(33, 33 ,33);
+}
+
+.modal__form_cancel:hover {
+  cursor: pointer;
+  color: rgb(33, 33, 33);
+  opacity: 1;
+}
+
 @media screen and (max-width: 627px) {
     .modal {
         padding: 0 10px;
     }
 
+    .modal__form_delete {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modal__container_delete {
+        width: 100%;
+        padding: 12px;
+    }
 
     .modal__container {
+        width: 80%;
         padding: 12px;
     }
 
@@ -176,6 +241,11 @@
     .modal__close {
         top: 12px;
         right: 12px;
+    }
+
+    .modal__close_delete {
+        top: -48px;
+        right: -10px;
     }
 
     .modal__close_preview {
@@ -198,4 +268,5 @@
     .modal__content_preview {
         max-width: fit-content;
     }
+
 }
