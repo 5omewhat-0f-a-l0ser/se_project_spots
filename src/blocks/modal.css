@@ -208,9 +208,9 @@
 }
 
 .modal__form_cancel:hover {
-  cursor: pointer;
-  color: rgb(33, 33, 33);
-  opacity: 1;
+  cursor: pointer !important;
+  color: rgb(33, 33, 33) !important;
+  opacity: 1 !important;
 }
 
 @media screen and (max-width: 627px) {
