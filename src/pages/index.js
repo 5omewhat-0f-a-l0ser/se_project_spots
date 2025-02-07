@@ -285,13 +285,13 @@ function handleAvatarFormSubmit(evt) {
     .then(data => {
       profilePicEl.src = data.avatar;
       submitButton.textContent = originalText;
-
+      evt.target.reset();
+      disableButton(avatarSubmit, config);
+      closeModal(avatarModal);
     })
   .catch(console.error);
 
-  evt.target.reset();
-  disableButton(avatarSubmit, config);
-  closeModal(avatarModal);
+
 }
 
 
