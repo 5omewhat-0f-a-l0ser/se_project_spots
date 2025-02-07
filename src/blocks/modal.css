@@ -68,6 +68,17 @@
     position: relative;
     border-radius: 8px;
 }
+
+.modal__container_delete {
+    background: #fff;
+    padding: 32px 50px;
+    max-width: 730px;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 8px;
+}
+
 /*caption*/
 .modal__caption {
     padding: 4px 8px;
@@ -193,13 +204,13 @@
     border-radius: 8px;
     border-color:rgba(33, 33, 33, 1);
     opacity: 1;
-
+    border: 1px solid rgb(33, 33 ,33);
 }
 
 .modal__form_cancel:hover {
-  cursor: pointer;
-  color: rgb(33, 33, 33);
-  opacity: 1;
+  cursor: pointer !important;
+  color: rgb(33, 33, 33) !important;
+  opacity: 1 !important;
 }
 
 @media screen and (max-width: 627px) {
@@ -210,6 +221,11 @@
     .modal__form_delete {
         flex-direction: column;
         align-items: center;
+    }
+
+    .modal__container_delete {
+        width: 100%;
+        padding: 12px;
     }
 
     .modal__container {
