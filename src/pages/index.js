@@ -192,11 +192,13 @@ function closeModal(modal) {
 }
 
 function setButtonText(button, isLoading, defaultText, loadingText) {
+  console.log(button);
   if (isLoading) {
       button.textContent = loadingText;
   } else {
       button.textContent = defaultText;
   }
+
 }
 
 function handleEditFormSubmit(evt) {
@@ -211,11 +213,11 @@ function handleEditFormSubmit(evt) {
     descriptionName.textContent = editModalDescriptionInput.value;
     disableButton(editModalSubmit, config);
     closeModal(editModal);
-    //submitButton.textContent = originalText;
+
   })
   .catch(() => {
     console.error("Sorry! Something must've gone wrong!");
-    //submitButton.textContent = originalText;
+
   })
 
   .finally(() => setButtonText(button, false, "Save", "Saving...")); // Set the button text back to "Save"
@@ -246,7 +248,7 @@ function handleDeleteSubmit(evt) {
 
     evt.preventDefault(); // prevent the submit button from refreshing the page
 
-    const button = evt.target.querySelector(".modal__submit");
+    const button = evt.target.querySelector(".modal__form_remove");
     setButtonText(button, true, "Delete", "Deleteing...");
 
     api
@@ -254,12 +256,12 @@ function handleDeleteSubmit(evt) {
       .then(() => {
         selectedCard.remove()
         closeModal(deleteModal);
-        submitButton.textContent = originalText;
+
 
       })
       .catch(() => {
         console.error("Sorry! Something must've gone wrong!");
-        submitButton.textContent = originalText;
+
       })
 
       .finally(() => setButtonText(button, false, "Delete", "Deleteing..."));
@@ -278,7 +280,6 @@ function handleAvatarFormSubmit(evt) {
   api.editAvatarInfo(avatarInput)
     .then(data => {
       profilePicEl.src = data.avatar;
-      submitButton.textContent = originalText;
       evt.target.reset();
       disableButton(avatarSubmit, config);
       closeModal(avatarModal);
