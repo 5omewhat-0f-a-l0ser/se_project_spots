@@ -193,15 +193,17 @@ function closeModal(modal) {
 
 function setButtonText(button, isLoading, defaultText, loadingText) {
   if (isLoading) {
-    button.textContent = loadingText;
+      button.textContent = loadingText;
   } else {
-    button.textContent = defaultText;
+      button.textContent = defaultText;
   }
 }
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
 
+  const button = evt.target.querySelector(".modal__submit");
+  setButtonText(button, true, "Save", "Saving...");
 
   api.editUserInfo({name: editModalNameInput.value, about: editModalDescriptionInput.value})
   .then(() => {
@@ -216,20 +218,15 @@ function handleEditFormSubmit(evt) {
     //submitButton.textContent = originalText;
   })
 
-  .finally(() =>{
-   setButtonText(button, false, "Save", "Saving...");
-  }); // Set the button text back to "Save"
+  .finally(() => setButtonText(button, false, "Save", "Saving...")); // Set the button text back to "Save"
 
 };
 
 function handleAddFormSubmit(evt) {
   evt.preventDefault();
   const formData = {cardName: addCardCaption.value, cardLink: addCardLink.value };
-
-  const button = evt.target.querySelector(".modal__button");
-
-
-
+ const button = evt.target.querySelector(".modal__submit");
+  setButtonText(button, true, "Save", "Saving...");
 api
   .addNewCard(formData)
   .then((res) => {
@@ -249,7 +246,8 @@ function handleDeleteSubmit(evt) {
 
     evt.preventDefault(); // prevent the submit button from refreshing the page
 
-
+    const button = evt.target.querySelector(".modal__submit");
+    setButtonText(button, true, "Delete", "Deleteing...");
 
     api
       .deleteCard(selectedCardId)
@@ -264,16 +262,15 @@ function handleDeleteSubmit(evt) {
         submitButton.textContent = originalText;
       })
 
-      .finally(() => {
-        setButtonText(button, false, "Delete", "Deleting...");
-      });
+      .finally(() => setButtonText(button, false, "Delete", "Deleteing..."));
 };
 
 function handleAvatarFormSubmit(evt) {
   evt.preventDefault();
   const avatarInput = { avatar: avatarLink.value };
 
- 
+  const button = evt.target.querySelector(".modal__submit");
+  setButtonText(button, true, "Save", "Saving...");
 
   console.log(JSON.stringify(avatarInput)); // Log the data being sent
 

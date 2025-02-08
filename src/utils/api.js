@@ -13,15 +13,8 @@ class Api {
         return fetch(`${this._baseUrl}/cards`, {
           headers: this._headers,
         })
-          .then(res => {
-            if (res.ok) {
-              return res.json();
-            }
-            return Promise.reject(`Error: ${res.status}`);
-          })
-          .catch(error => {
-            console.log('Error fetching data', error);
-          });
+          .then(this.checkResponse)
+          
     }
 
     // create more methods(ie: getUserInfo, etc.) for the api with a diff baseUrl
@@ -47,7 +40,6 @@ class Api {
       })
         .then(response => response.json())
         .then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
     }
 
     editAvatarInfo( avatarInput ) {
@@ -56,7 +48,7 @@ class Api {
         headers: this._headers,
         body: JSON.stringify(avatarInput)
     })
-      .then(res => res.ok ? res.json() : Promise.reject('Failed to update avatar'))
+      .then(this.checkResponse)
     }
     //--card functions--
 
@@ -69,15 +61,7 @@ class Api {
           link: cardLink  // cardLink should be your card's link variable
         })
       })
-        .then(res => {
-          if (res.ok) {
-            return res.json();
-          }
-          return Promise.reject(`Error: ${res.status}`);
-        })
-        .catch(error => {
-          console.log('Error fetching data', error);
-        });
+        .then(this.checkResponse)
     }
 
     deleteCard(cardId) {
@@ -85,15 +69,7 @@ class Api {
         method: 'DELETE',
         headers: this._headers
       })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
-      })
-      .catch(error => {
-        console.log('Error fetching data', error);
-      });
+      .then(this.checkResponse)
     }
 
     //---Likes and unlikes--
@@ -103,9 +79,8 @@ class Api {
         method: 'PUT',
         headers: this._headers,
       })
-      .then(res => res.ok ? res.json() : Promise.reject('Failed to like'))
+      .then(this.checkResponse)
         //.then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
     }
 
     unLikeCard(cardId) {
@@ -115,11 +90,13 @@ class Api {
       })
         .then(response => response.json())
         //.then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
     }
     //--Checking response--
-    checkResponse() {
-      
+    checkResponse(res) {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
     }
 }
 
