@@ -122,6 +122,15 @@
     font-size: 32px;
     line-height: 1;
 }
+
+.modal__title_delete {
+  font-size: 24px;
+  line-height: 24px;
+  margin: 0 0 32px;
+  color: #212121;
+  text-align: center;
+}
+
 /*inputs*/
 .modal__input {
     border-radius: 8px;
@@ -197,14 +206,15 @@
 
 /*cancels*/
 .modal__form_cancel {
-    width: 156px;
-    height: 52px;
-    padding: 18px 32px 18px 32px;
-    gap: 8px;
-    border-radius: 8px;
-    border-color:rgba(33, 33, 33, 1);
-    opacity: 1;
-    border: 1px solid rgb(33, 33 ,33);
+  width: 156px;
+  height: 52px;
+  padding: 18px 32px;
+  gap: 8px;
+  border-radius: 8px;
+  opacity: 1;
+  border: 1px solid #212121;
+  background-color: transparent;
+  font-weight: 500;
 }
 
 .modal__form_cancel:hover {
