@@ -53,7 +53,7 @@ const enableButton = (buttonElement, config) => {
 };
 
 
-const disableButton = (buttonElement, config) => {
+export const disableButton = (buttonElement, config) => {
 console.log(buttonElement); // To check if the button element is coming through
 if (buttonElement) {  // This checks if buttonElement is defined
     buttonElement.classList.add(config.inactiveButtonClass);
