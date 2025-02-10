@@ -333,7 +333,7 @@ function closeModalEsc(evt) {
 };
 
 
-//am I on the right branch?
+//did I fix all the things wrong? Probably not...
 
 const modals = document.querySelectorAll(".modal");
 
