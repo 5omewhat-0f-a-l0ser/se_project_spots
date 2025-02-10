@@ -122,14 +122,14 @@ function getCardElement(data) {
               cardLikeButton.classList.toggle("card__like-btn_liked");
               console.log(response);
             })
-            .catch(console.error);
+             .catch(error => console.error('Error:', error));
         } else {
           api.likeCard(data._id)
             .then((response) => {
               cardLikeButton.classList.toggle("card__like-btn_liked");
               console.log(response);
             })
-            .catch(console.error);
+             .catch(error => console.error('Error:', error));
         }
       });
 

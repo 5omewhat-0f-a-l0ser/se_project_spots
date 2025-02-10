@@ -14,7 +14,7 @@ class Api {
           headers: this._headers,
         })
           .then(this.checkResponse)
-          
+
     }
 
     // create more methods(ie: getUserInfo, etc.) for the api with a diff baseUrl
@@ -25,8 +25,7 @@ class Api {
         method: 'GET',
         headers: this._headers
       })
-        .then(response => response.json())
-
+      .then(this.checkResponse)
     }
 
     editUserInfo({ name, about }) {
@@ -38,8 +37,7 @@ class Api {
           about,
         })
       })
-        .then(response => response.json())
-        .then(data => console.log(data))
+      .then(this.checkResponse)
     }
 
     editAvatarInfo( avatarInput ) {
@@ -80,7 +78,6 @@ class Api {
         headers: this._headers,
       })
       .then(this.checkResponse)
-        //.then(data => console.log(data))
     }
 
     unLikeCard(cardId) {
@@ -88,8 +85,7 @@ class Api {
         method: 'DELETE',
         headers: this._headers,
       })
-        .then(response => response.json())
-        //.then(data => console.log(data))
+      .then(this.checkResponse)
     }
     //--Checking response--
     checkResponse(res) {
@@ -98,6 +94,6 @@ class Api {
       }
       return Promise.reject(`Error: ${res.status}`);
     }
-}
+  }
 
 export default Api;
